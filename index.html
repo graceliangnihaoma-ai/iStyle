@@ -78,7 +78,9 @@
 <header>
   <h1>iStyle</h1>
   <p>See yourself before you change.</p>
-  <a href="#" class="button">Try AI Style Preview</a>
+  <a href="#" class="button" onclick="alert('iStyle AI Preview is coming soon.\n\nUpload your photo to preview hairstyles, colors and personal style.\n\nJoin early access to be the first.'); return false;">
+  Try AI Style Preview
+</a>
 </header>
 
 <section>
@@ -125,17 +127,5 @@
   </ul>
 </section>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var btn = document.querySelector(".button");
-    if (btn) {
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-        alert(
-          "iStyle AI Preview is coming soon.\n\nUpload your photo to preview hairstyles, colors and personal style.\n\nJoin early access to be the first."
-        );
-      });
-    }
-  });
-</script></body>
+</body>
 </html>
