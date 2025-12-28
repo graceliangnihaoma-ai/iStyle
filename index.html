@@ -129,11 +129,16 @@
   <p>iStyle © 2025 · AI-powered personal beauty & identity platform</p>
 </footer>
 <script>
-  document.querySelector('.button').addEventListener('click', function(e) {
-    e.preventDefault();
-    alert(
-      "iStyle AI Preview is coming soon.\n\nUpload your photo to see hairstyle, color and style simulations.\n\nJoin early access to be the first."
-    );
+  document.addEventListener("DOMContentLoaded", function () {
+    var btn = document.querySelector(".button");
+    if (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        alert(
+          "iStyle AI Preview is coming soon.\n\nUpload your photo to preview hairstyles, colors and personal style.\n\nJoin early access to be the first."
+        );
+      });
+    }
   });
 </script>
 </body>
