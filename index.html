@@ -81,9 +81,7 @@
   <p style="color:red; font-weight:bold;">
 THIS IS THE NEW VERSION – BUTTON SHOULD WORK
 </p>
-<button class="button" onclick="alert('iStyle AI Preview is coming soon.\n\nUpload your photo to preview hairstyles, colors and personal style.\n\nJoin early access to be the first.')">
-  Try AI Style Preview
-</button>
+<button onclick="openModal()">Try AI Style Preview</button>
 </header>
 
 <section>
@@ -129,6 +127,26 @@ THIS IS THE NEW VERSION – BUTTON SHOULD WORK
     <li>Built for the future of beauty & identity</li>
   </ul>
 </section>
+
+  <div id="previewModal" style="display:none; position:fixed; top:20%; left:50%; transform:translateX(-50%); background:white; padding:20px; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.3); z-index:999;">
+  <h3>iStyle AI Preview</h3>
+  <p>Upload your photo to preview your future style.</p>
+
+  <input type="file" accept="image/*" />
+
+  <br><br>
+  <button onclick="closeModal()">Close</button>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById("previewModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("previewModal").style.display = "none";
+}
+</script>
 
 </body>
 </html>
