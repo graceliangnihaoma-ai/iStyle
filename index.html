@@ -2,182 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>iStyle — Explore What Works With You</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>iStyle</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
       margin: 0;
       padding: 0;
-      background: #ffffff;
-      color: #111;
-      line-height: 1.6;
+      background: #fafafa;
+      color: #222;
     }
     header {
       padding: 80px 20px;
       text-align: center;
+      background: #ffffff;
     }
     header h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
+      font-size: 48px;
+      margin-bottom: 16px;
+      font-weight: 600;
     }
     header p {
-      font-size: 1.3em;
+      font-size: 18px;
       color: #555;
+      max-width: 600px;
+      margin: 0 auto 40px;
     }
-    .button {
-  margin-top: 30px;
-  padding: 15px 30px;
-  background: #000;
-  color: #fff;
-  border: none;
-  border-radius: 30px;
-  font-size: 1em;
-  cursor: pointer;
-  }
+    button {
+      padding: 14px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+    }
     section {
-      padding: 60px 20px;
       max-width: 900px;
-      margin: auto;
+      margin: 80px auto;
+      padding: 0 20px;
     }
     h2 {
-      text-align: center;
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #444;
+    }
+    .mode {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 40px;
       margin-bottom: 40px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    ul li {
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-    }
-    .two-columns {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 40px;
-    }
-    .card {
-      border: 1px solid #eee;
-      padding: 30px;
-      width: 200px;
-      text-align: center;
-      border-radius: 10px;
     }
     footer {
       text-align: center;
       padding: 40px 20px;
-      background: #f8f8f8;
+      font-size: 14px;
       color: #777;
     }
   </style>
 </head>
+
 <body>
 
 <header>
   <h1>iStyle</h1>
-  <p>See yourself before you change.</p>
-  <p style="color:red; font-weight:bold;">
-THIS IS THE NEW VERSION – BUTTON SHOULD WORK
-</p>
-<button onclick="openModal()">Try AI Style Preview</button>
+  <p>
+    Explore what works with you — not what changes you.<br />
+    A thoughtful AI platform for hair, skin, style and aesthetic direction.
+  </p>
+  <button>Try AI Style Preview</button>
 </header>
 
 <section>
-  <h2>What is iStyle?</h2>
-  <p>
-    iStyle is an AI-powered personal style, beauty and identity platform.
-    Upload a photo and instantly preview hairstyles, hair colors, skin improvements
-    and future aesthetic possibilities — before making real decisions.
-  </p>
-</section>
+  <div class="mode">
+    <h2>🌿 Real Mode · Understand Me</h2>
+    <p>
+      Real Mode focuses on understanding who you already are.<br />
+      Hair, color, skincare and personal style suggestions are based on your
+      natural features — without changing your face.
+    </p>
+    <p>
+      You will receive several possible directions, not a single answer.
+      Every suggestion is meant to enhance, not replace, you.
+    </p>
+    <p>
+      <strong>Take what resonates. Leave what doesn’t.</strong>
+    </p>
+  </div>
 
-<section>
-  <h2>What You Can Explore</h2>
-  <ul>
-    <li>Hairstyle & Hair Color Preview</li>
-    <li>Hair Loss & Volume Simulation</li>
-    <li>Skin Condition & Care Direction</li>
-    <li>Aesthetic & Beauty Guidance <em>(Coming Soon)</em></li>
-    <li>Personal Style & Identity <em>(Future)</em></li>
-  </ul>
-</section>
+  <div class="mode">
+    <h2>✨ Dream Mode · Explore Possibilities</h2>
+    <p>
+      Dream Mode is optional and user-initiated.<br />
+      It allows you to explore future possibilities — makeup balance,
+      visual enhancement, or aesthetic directions.
+    </p>
+    <p>
+      All previews are conceptual references, not promises.
+      They exist to help you understand options and prepare informed conversations.
+    </p>
+    <p>
+      <strong>Every decision belongs to you.</strong>
+    </p>
+  </div>
 
-<section>
-  <h2>Designed for Everyone</h2>
-  <div class="two-columns">
-    <div class="card">
-      <h3>For Women</h3>
-      <p>Visualize beauty, style and confidence.</p>
-    </div>
-    <div class="card">
-      <h3>For Men</h3>
-      <p>See real change before you commit.</p>
-    </div>
+  <div class="mode">
+    <h2>About iStyle</h2>
+    <p>
+      iStyle is not here to change who you are.
+      It exists to help you understand what works with you —
+      your features, lifestyle, comfort and goals.
+    </p>
+    <p>
+      From hair and color to skincare and style,
+      iStyle offers clarity without pressure,
+      and possibility without perfection.
+    </p>
   </div>
 </section>
 
-<section>
-  <h2>Why iStyle?</h2>
-  <ul>
-    <li>AI-driven visual decision making</li>
-    <li>Global stylist & beauty perspective</li>
-    <li>Personal, not generic recommendations</li>
-    <li>Built for the future of beauty & identity</li>
-  </ul>
-</section>
-
-  <!-- Button -->
-<button onclick="openModal()">Try AI Style Preview</button>
-
-<!-- Modal -->
-<div id="previewModal" style="display:none; position:fixed; top:15%; left:50%; transform:translateX(-50%); background:white; padding:24px; border-radius:12px; box-shadow:0 0 30px rgba(0,0,0,0.35); z-index:999; width:320px; text-align:center;">
-  
-  <h3>iStyle AI Preview</h3>
-  <p>Upload your photo to preview your future style.</p>
-
-  <input type="file" accept="image/*" onchange="startAnalyzing(event)" />
-
-  <div id="analyzing" style="display:none; margin-top:16px; font-weight:bold;">
-    🤖 AI is analysing your face & style...
-  </div>
-
-  <img id="previewImage" style="display:none; margin-top:16px; width:100%; border-radius:8px;" />
-
-  <br><br>
-  <button onclick="closeModal()">Close</button>
-</div>
-</div>
-
-<script>
-function openModal() {
-  document.getElementById("previewModal").style.display = "block";
-  document.getElementById("analyzing").style.display = "none";
-  document.getElementById("previewImage").style.display = "none";
-}
-
-function closeModal() {
-  document.getElementById("previewModal").style.display = "none";
-}
-
-function startAnalyzing(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-
-  const analyzing = document.getElementById("analyzing");
-  const previewImage = document.getElementById("previewImage");
-
-  analyzing.style.display = "block";
-  previewImage.style.display = "none";
-
-  setTimeout(() => {
-    analyzing.style.display = "none";
-    previewImage.src = URL.createObjectURL(file);
-    previewImage.style.display = "block";
-  }, 2000);
-}
-</script>
+<footer>
+  © iStyle — Visual reference only. All decisions should be made based on personal circumstances and professional advice.
+</footer>
 
 </body>
 </html>
+
+  
