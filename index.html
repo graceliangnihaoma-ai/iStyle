@@ -2,95 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>iStyle — See Yourself More Clearly</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iStyle – See Yourself More Clearly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f4f4f4;
-      color: #222;
       margin: 0;
-      padding: 30px 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #f5f5f5;
+      color: #111;
     }
+
     header {
+      max-width: 960px;
+      margin: 40px auto 20px;
+      padding: 0 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 900px;
-      margin: 0 auto 40px;
     }
-    h1 {
-      font-size: 2.2rem;
-      margin: 0;
+
+    .brand {
+      font-weight: 600;
+      font-size: 1.1rem;
     }
-    .lang-btn {
-      background: none;
-      border: 1px solid #ccc;
+
+    .lang-switch button {
+      margin-left: 8px;
+      padding: 6px 12px;
       border-radius: 20px;
-      padding: 6px 14px;
+      border: 1px solid #ccc;
+      background: #fff;
       cursor: pointer;
     }
-    .subtitle {
-      text-align: center;
-      color: #555;
-      margin-bottom: 40px;
+
+    .lang-switch button.active {
+      background: #111;
+      color: #fff;
+      border-color: #111;
     }
+
+    .hero {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .cards {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
     .card {
       background: #fff;
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 24px;
-      max-width: 720px;
-      margin: 0 auto 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     }
+
+    .card h2 {
+      margin-top: 0;
+    }
+
     .feeling {
       font-style: italic;
       color: #666;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
+
     .section-title {
       font-weight: 600;
-      margin-top: 18px;
-      margin-bottom: 6px;
+      margin-top: 16px;
     }
+
     ul {
       padding-left: 18px;
     }
-    button {
-      margin-top: 18px;
+
+    button.explore {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border-radius: 30px;
+      border: none;
       background: #111;
       color: #fff;
-      border: none;
-      border-radius: 22px;
-      padding: 10px 20px;
       cursor: pointer;
     }
-    button.secondary {
-      background: #e0e0e0;
-      color: #222;
-      margin-right: 10px;
-    }
-    #modal {
+
+    /* language control */
+    [data-lang="zh"] {
       display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-    #modalContent {
-      background: #fff;
-      border-radius: 16px;
-      padding: 26px;
-      max-width: 520px;
-      width: 90%;
-    }
-    .saved {
-      margin-top: 12px;
-      color: #007a3d;
-      font-weight: 500;
     }
   </style>
 </head>
@@ -98,126 +112,126 @@
 <body>
 
 <header>
-  <div><strong>iStyle</strong></div>
-  <button class="lang-btn" onclick="toggleLang()">中文</button>
+  <div class="brand">iStyle</div>
+  <div class="lang-switch">
+    <button class="active" onclick="setLang('en')">EN</button>
+    <button onclick="setLang('zh')">中文</button>
+  </div>
 </header>
 
-<h1 id="title">See yourself more clearly.</h1>
-<p class="subtitle" id="subtitle">
-  Not to change who you are — but to understand who you could become.
-</p>
+<section class="hero">
+  <h1 data-lang="en">See yourself more clearly.</h1>
+  <h1 data-lang="zh">更清晰地看见自己。</h1>
 
-<div class="card">
-  <h2 id="card1-title">Soft Natural Balance</h2>
-  <div class="feeling" id="card1-feel">
-    A gentle refinement that feels effortless and authentic.
+  <p data-lang="en">Not to change who you are — but to understand who you could become.</p>
+  <p data-lang="zh">不是为了改变你是谁，而是理解你可以成为谁。</p>
+</section>
+
+<section class="cards">
+
+  <!-- Card 1 -->
+  <div class="card">
+    <h2 data-lang="en">Soft Natural Balance</h2>
+    <h2 data-lang="zh">自然平衡风格</h2>
+
+    <div class="feeling" data-lang="en">A gentle refinement that feels effortless and authentic.</div>
+    <div class="feeling" data-lang="zh">一种轻柔、不费力、真实自然的提升。</div>
+
+    <div class="section-title" data-lang="en">Why this might suit you</div>
+    <div class="section-title" data-lang="zh">为什么你可能适合这个方向</div>
+
+    <p data-lang="en">You prefer subtle improvements that enhance what you already have.</p>
+    <p data-lang="zh">你偏好自然的改变，希望强化原本的自己。</p>
+
+    <div class="section-title" data-lang="en">This direction can explore</div>
+    <div class="section-title" data-lang="zh">这个方向可以探索</div>
+
+    <ul data-lang="en">
+      <li>Natural hairstyle balance</li>
+      <li>Subtle colour refinement</li>
+      <li>Everyday appearance harmony</li>
+    </ul>
+
+    <ul data-lang="zh">
+      <li>自然协调的发型</li>
+      <li>细微而高级的发色调整</li>
+      <li>日常外观的整体和谐感</li>
+    </ul>
+
+    <button class="explore">Explore this direction</button>
   </div>
 
-  <div class="section-title" id="card1-why-title">Why this might suit you</div>
-  <p id="card1-why">
-    You may prefer changes that feel natural rather than dramatic.
-  </p>
+  <!-- Card 2 -->
+  <div class="card">
+    <h2 data-lang="en">Balanced Transformation</h2>
+    <h2 data-lang="zh">平衡型改变方向</h2>
 
-  <div class="section-title" id="card1-can-title">This direction can explore</div>
-  <ul id="card1-list">
-    <li>Natural hairstyle balance</li>
-    <li>Subtle colour refinement</li>
-    <li>Everyday appearance harmony</li>
-  </ul>
+    <div class="feeling" data-lang="en">A visible change that still feels like you.</div>
+    <div class="feeling" data-lang="zh">看得见的改变，但依然是你自己 </div>
 
-  <button onclick="openExplore('Soft Natural Balance')"
-    id="card1-btn">Explore this direction</button>
-</div>
+    <div class="section-title" data-lang="en">Why this might suit you</div>
+    <div class="section-title" data-lang="zh">为什么你可能适合这个方向</div>
 
-<!-- Modal -->
-<div id="modal">
-  <div id="modalContent"></div>
-</div>
+    <p data-lang="en">You are open to improvement when it aligns with comfort and lifestyle.</p>
+    <p data-lang="zh">你愿意改变，但前提是符合你的生活方式与舒适感 </p>
+
+    <ul data-lang="en">
+      <li>Structured hairstyle updates</li>
+      <li>Balanced grooming or makeup shifts</li>
+      <li>Medium-term aesthetic planning</li>
+    </ul>
+
+    <ul data-lang="zh">
+      <li>更有结构感的发型调整</li>
+      <li>适度的妆容或修饰变化</li>
+      <li>中期形象规划</li>
+    </ul>
+
+    <button class="explore">Explore this direction</button>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <h2 data-lang="en">Future Possibility Mapping</h2>
+    <h2 data-lang="zh">未来可能性探索</h2>
+
+    <div class="feeling" data-lang="en">Visualising who you could become, without pressure.</div>
+    <div class="feeling" data-lang="zh">在没有压力的前提下，看见未来的可能。</div>
+
+    <div class="section-title" data-lang="en">Why this might suit you</div>
+    <div class="section-title" data-lang="zh">为什么你可能适合这个方向</div>
+
+    <p data-lang="en">You are curious about future versions of yourself.</p>
+    <p data-lang="zh">你对未来的自己充满好奇。</p>
+
+    <ul data-lang="en">
+      <li>Future appearance concepts</li>
+      <li>Aesthetic inspiration without obligation</li>
+      <li>Thoughtful self-reflection</li>
+    </ul>
+
+    <ul data-lang="zh">
+      <li>未来形象的视觉探索</li>
+      <li>没有承诺压力的审美灵感</li>
+      <li>更深层的自我理解</li>
+    </ul>
+
+    <button class="explore">Explore this direction</button>
+  </div>
+
+</section>
 
 <script>
-  let lang = "en";
-  let savedDirection = "";
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+    });
 
-  function toggleLang() {
-    lang = lang === "en" ? "zh" : "en";
-    document.querySelector(".lang-btn").innerText = lang === "en" ? "中文" : "EN";
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.classList.remove('active');
+    });
 
-    document.getElementById("title").innerText =
-      lang === "en" ? "See yourself more clearly." : "更清晰地看见自己";
-
-    document.getElementById("subtitle").innerText =
-      lang === "en"
-        ? "Not to change who you are — but to understand who you could become."
-        : "不是为了改变你是谁，而是理解你可以成为什么样的人";
-
-    document.getElementById("card1-title").innerText =
-      lang === "en" ? "Soft Natural Balance" : "柔和自然平衡";
-
-    document.getElementById("card1-feel").innerText =
-      lang === "en"
-        ? "A gentle refinement that feels effortless and authentic."
-        : "一种不费力、真实自然的细腻优化。";
-
-    document.getElementById("card1-why-title").innerText =
-      lang === "en" ? "Why this might suit you" : "为什么你可能适合这个方向";
-
-    document.getElementById("card1-why").innerText =
-      lang === "en"
-        ? "You may prefer changes that feel natural rather than dramatic."
-        : "你可能更偏好自然、不夸张的改变。";
-
-    document.getElementById("card1-can-title").innerText =
-      lang === "en" ? "This direction can explore" : "这个方向可以探索";
-
-    document.getElementById("card1-btn").innerText =
-      lang === "en" ? "Explore this direction" : "探索这个方向";
-  }
-
-  function openExplore(direction) {
-    const content =
-      lang === "en"
-        ? `
-        <h2>${direction}</h2>
-        <p>
-          This is not a recommendation, result or promise.<br>
-          It is a space to understand possible directions.
-        </p>
-        <p style="color:#666;">
-          AI-based visual preview may be available in the future.
-        </p>
-        <button class="secondary" onclick="saveDirection('${direction}')">
-          Save this direction
-        </button>
-        <button class="secondary" onclick="closeModal()">Close</button>
-        `
-        : `
-        <h2>${direction}</h2>
-        <p>
-          这不是建议、结果或承诺。<br>
-          这是一个理解可能方向的空间。
-        </p>
-        <p style="color:#666;">
-          未来可能提供基于 AI 的视觉预览。
-        </p>
-        <button class="secondary" onclick="saveDirection('${direction}')">
-          保存这个方向
-        </button>
-        <button class="secondary" onclick="closeModal()">关闭</button>
-        `;
-    document.getElementById("modalContent").innerHTML = content;
-    document.getElementById("modal").style.display = "flex";
-  }
-
-  function saveDirection(direction) {
-    savedDirection = direction;
-    document.getElementById("modalContent").innerHTML +=
-      lang === "en"
-        ? `<div class="saved">✓ Direction saved for future exploration.</div>`
-        : `<div class="saved">✓ 已保存该方向，供未来探索。</div>`;
-  }
-
-  function closeModal() {
-    document.getElementById("modal").style.display = "none";
+    document.querySelector(`.lang-switch button[onclick="setLang('${lang}')"]`).classList.add('active');
   }
 </script>
 
