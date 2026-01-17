@@ -1,214 +1,273 @@
 ​<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>iStyle — See Yourself More Clearly</title>
+  <meta charset="UTF-8" />
+  <title>iStyle — See Your True Self</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-:root{
-  --bg-main:#f6f5f2;
-  --bg-card:#ffffff;
-  --text-main:#111;
-  --text-sub:#666;
-  --accent:#1a1a1a;
-  --radius:18px;
-}
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  background:var(--bg-main);
-  color:var(--text-main);
-}
+  <style>
+    :root {
+      --bg-main: #f6f7f5;
+      --text-main: #111;
+      --text-sub: #555;
+      --card-bg: rgba(255,255,255,0.75);
+      --accent: #111;
+    }
 
-/* Header */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:24px 40px;
-}
-.logo{
-  font-weight:600;
-  letter-spacing:0.5px;
-}
-.lang-switch button{
-  margin-left:8px;
-  padding:6px 12px;
-  border-radius:14px;
-  border:none;
-  background:#e5e3df;
-  cursor:pointer;
-  font-size:12px;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* Hero */
-.hero{
-  padding:100px 40px 80px;
-  max-width:1100px;
-  margin:auto;
-}
-.hero h1{
-  font-size:48px;
-  line-height:1.15;
-  margin-bottom:16px;
-}
-.hero p{
-  font-size:18px;
-  color:var(--text-sub);
-  max-width:520px;
-}
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(1200px 600px at 70% 20%, #eaece8 0%, var(--bg-main) 60%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-/* Start */
-.start{
-  margin-top:60px;
-}
-.start button{
-  padding:14px 28px;
-  border-radius:30px;
-  border:none;
-  background:var(--accent);
-  color:#fff;
-  font-size:15px;
-  cursor:pointer;
-}
+    header {
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-/* Cards */
-.section{
-  max-width:1100px;
-  margin:0 auto 120px;
-  padding:0 40px;
-}
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:24px;
-}
-.card{
-  background:var(--bg-card);
-  border-radius:var(--radius);
-  padding:28px;
-}
-.card h3{
-  margin-top:0;
-}
-.card p{
-  color:var(--text-sub);
-}
-.card ul{
-  padding-left:18px;
-  color:var(--text-sub);
-}
-.card button{
-  margin-top:18px;
-  border:none;
-  background:#111;
-  color:#fff;
-  padding:10px 18px;
-  border-radius:20px;
-  cursor:pointer;
-}
+    .brand {
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
 
-/* Footer note */
-.note{
-  text-align:center;
-  font-size:14px;
-  color:#777;
-  padding-bottom:60px;
-}
-</style>
+    .lang-toggle button {
+      background: none;
+      border: 1px solid #ccc;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-left: 8px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .lang-toggle button.active {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+
+    /* Hero */
+    .hero {
+      max-width: 1100px;
+      margin: 120px auto 160px;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 500;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-sub);
+      max-width: 420px;
+      margin-bottom: 40px;
+    }
+
+    .hero button {
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 28px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* Abstract Visual */
+    .visual {
+      height: 420px;
+      border-radius: 24px;
+      background:
+        radial-gradient(300px 300px at 30% 30%, rgba(0,0,0,0.08), transparent 60%),
+        radial-gradient(400px 400px at 70% 60%, rgba(0,0,0,0.06), transparent 60%),
+        linear-gradient(135deg, #f2f3f1, #e4e6e2);
+      filter: blur(0.2px);
+    }
+
+    /* Intro Section */
+    .intro {
+      max-width: 900px;
+      margin: 0 auto 120px;
+      padding: 0 40px;
+      color: var(--text-sub);
+      font-size: 16px;
+    }
+
+    .intro p {
+      margin-bottom: 12px;
+    }
+
+    /* Cards */
+    .cards {
+      max-width: 1100px;
+      margin: 0 auto 160px;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      border-radius: 22px;
+      padding: 32px;
+    }
+
+    .card h3 {
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .card button {
+      background: none;
+      border: 1px solid #bbb;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">iStyle</div>
-  <div class="lang-switch">
-    <button onclick="setLang('en')">EN</button>
+  <div class="brand">iStyle</div>
+  <div class="lang-toggle">
+    <button class="active" onclick="setLang('en')">EN</button>
     <button onclick="setLang('zh')">中文</button>
   </div>
 </header>
 
-<section class="hero">
-  <h1 id="hero-title">
-    See who you truly are.<br/>
-    Become who you can be — naturally.
-  </h1>
-  <p id="hero-sub">
-    iStyle helps you explore appearance directions that suit you — calmly, visually, without pressure.
-  </p>
+<main>
 
-  <div class="start">
-    <button id="start-btn">Start exploring</button>
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1 id="hero-title">
+        See who you truly are.<br>
+        Become who you can be — naturally.
+      </h1>
+      <p id="hero-desc">
+        iStyle helps you explore appearance directions that suit you —
+        calmly, visually, without pressure.
+      </p>
+      <button id="hero-cta">See your possibilities</button>
+    </div>
+    <div class="visual"></div>
+  </section>
 
-<section class="section">
-  <div class="cards">
+  <!-- INTRO -->
+  <section class="intro" id="intro">
+    <p>Explore without commitment.</p>
+    <p>Visualise change before deciding.</p>
+    <p>Every direction starts from who you already are.</p>
+  </section>
 
+  <!-- CARDS -->
+  <section class="cards">
     <div class="card">
-      <h3 id="c1-title">Soft Natural Balance</h3>
-      <p id="c1-desc">A gentle refinement that feels effortless and authentic.</p>
-      <ul id="c1-list">
-        <li>Natural hairstyle balance</li>
-        <li>Subtle colour refinement</li>
-        <li>Everyday appearance harmony</li>
-      </ul>
-      <button>Explore this direction</button>
+      <h3>Soft Natural Balance</h3>
+      <p>A gentle refinement that feels effortless and authentic.</p>
+      <div class="tags">Natural · Subtle · Harmonious</div>
+      <button>Explore</button>
     </div>
 
     <div class="card">
-      <h3 id="c2-title">Balanced Transformation</h3>
-      <p id="c2-desc">A visible change that still feels like you.</p>
-      <ul id="c2-list">
-        <li>Structured hairstyle updates</li>
-        <li>Balanced grooming or makeup shifts</li>
-        <li>Medium-term aesthetic planning</li>
-      </ul>
-      <button>Explore this direction</button>
+      <h3>Balanced Transformation</h3>
+      <p>A visible change that still feels like you.</p>
+      <div class="tags">Structured · Considered · Grounded</div>
+      <button>Explore</button>
     </div>
 
     <div class="card">
-      <h3 id="c3-title">Future Possibility Mapping</h3>
-      <p id="c3-desc">Visualising who you could become — without pressure.</p>
-      <ul id="c3-list">
-        <li>Future appearance exploration</li>
-        <li>Aesthetic inspiration without obligation</li>
-        <li>Thoughtful self-reflection</li>
-      </ul>
-      <button>Explore this direction</button>
+      <h3>Future Possibility Mapping</h3>
+      <p>Visualising who you could become — without pressure.</p>
+      <div class="tags">Exploratory · Aspirational · Reflective</div>
+      <button>Explore</button>
     </div>
+  </section>
 
-  </div>
-</section>
-
-<div class="note" id="note">
-  AI visual preview is designed for exploration, not prediction or commitment.
-</div>
+</main>
 
 <script>
-function setLang(lang){
-  if(lang==='zh'){
-    document.getElementById('hero-title').innerHTML='看见真实的自己<br/>遇见更好的自己';
-    document.getElementById('hero-sub').innerText='iStyle 帮助你以轻松、直观、无压力的方式，探索适合你的外在形象方向。';
-    document.getElementById('start-btn').innerText='开始探索';
+  function setLang(lang) {
+    const title = document.getElementById('hero-title');
+    const desc = document.getElementById('hero-desc');
+    const cta = document.getElementById('hero-cta');
+    const intro = document.getElementById('intro');
 
-    document.getElementById('c1-title').innerText='自然平衡风格';
-    document.getElementById('c1-desc').innerText='一种轻柔、不费力、真实自然的提升。';
+    document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
 
-    document.getElementById('c2-title').innerText='平衡型改变方向';
-    document.getElementById('c2-desc').innerText='看得见的改变，但依然是你自己。';
-
-    document.getElementById('c3-title').innerText='未来可能性探索';
-    document.getElementById('c3-desc').innerText='在没有压力的前提下，想象你可能成为的样子。';
-
-    document.getElementById('note').innerText='AI 视觉预览仅用于探索方向，不构成任何承诺或结果保证。';
-  }else{
-    location.reload();
+    if (lang === 'zh') {
+      title.innerHTML = '看见真实的自己，<br>遇见更好的自己';
+      desc.innerHTML = 'iStyle 帮助你在没有压力的前提下，<br>以视觉方式探索适合你的外在方向。';
+      cta.innerHTML = '看看你的可能性';
+      intro.innerHTML = `
+        <p>在不需要做决定的前提下探索。</p>
+        <p>在改变之前，先看见可能性。</p>
+        <p>所有方向，都从真实的你开始。</p>
+      `;
+    } else {
+      title.innerHTML = 'See who you truly are.<br>Become who you can be — naturally.';
+      desc.innerHTML = 'iStyle helps you explore appearance directions that suit you — calmly, visually, without pressure.';
+      cta.innerHTML = 'See your possibilities';
+      intro.innerHTML = `
+        <p>Explore without commitment.</p>
+        <p>Visualise change before deciding.</p>
+        <p>Every direction starts from who you already are.</p>
+      `;
+    }
   }
-}
 </script>
 
 </body>
