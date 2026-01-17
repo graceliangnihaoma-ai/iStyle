@@ -1,4 +1,8 @@
-​<!DOCTYPE html>
+(No subject)
+
+Alice Leung
+​You​
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,345 +12,293 @@
   <style>
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(180deg, #f4f5f7, #ffffff);
-      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      background: #f5f5f5;
+      color: #111;
     }
 
     .container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 80px 20px 60px;
+      padding: 80px 20px 120px;
     }
 
     h1 {
       text-align: center;
-      font-size: 36px;
-      margin-bottom: 12px;
+      font-size: 2.6rem;
+      margin-bottom: 10px;
     }
 
     .subtitle {
       text-align: center;
-      font-size: 18px;
-      color: #666;
+      color: #555;
       margin-bottom: 60px;
+      font-size: 1.05rem;
     }
 
     .card {
       background: #fff;
       border-radius: 16px;
-      padding: 32px;
-      margin-bottom: 28px;
+      padding: 28px;
+      margin-bottom: 30px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     }
 
     .card h2 {
       margin-top: 0;
-      font-size: 24px;
-      margin-bottom: 8px;
     }
 
     .feeling {
       font-style: italic;
-      color: #555;
-      margin-bottom: 20px;
+      color: #666;
+      margin-bottom: 18px;
     }
 
     .section-title {
       font-weight: 600;
-      margin-top: 20px;
+      margin-top: 18px;
       margin-bottom: 6px;
     }
 
     ul {
-      padding-left: 20px;
-      margin-top: 6px;
+      padding-left: 18px;
     }
 
-    li {
-      margin-bottom: 6px;
-      color: #444;
-    }
-
-    .card button {
-      margin-top: 24px;
-      background: #000;
-      color: #fff;
+    button {
+      margin-top: 18px;
+      padding: 10px 16px;
+      border-radius: 20px;
       border: none;
-      border-radius: 24px;
-      padding: 12px 22px;
-      font-size: 14px;
+      background: #111;
+      color: #fff;
       cursor: pointer;
+      font-size: 0.95rem;
     }
 
-    .card button:hover {
-      background: #333;
+    button:hover {
+      opacity: 0.9;
     }
 
-    .note {
-      margin-top: 60px;
-      font-size: 14px;
-      color: #666;
-      background: #f7f7f7;
-      padding: 20px;
-      border-radius: 12px;
+    /* Language system */
+    .lang.zh {
+      display: none;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 13px;
-      color: #999;
+    .language-switch {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 1000;
+    }
+
+    .language-switch button {
+      background: #fff;
+      color: #111;
+      border: 1px solid #ccc;
+      margin-left: 6px;
     }
   </style>
 </head>
-  
-<section id="explore-detail" style="margin-top:60px;">
-  <div style="max-width:900px;margin:0 auto;background:#f5f5f5;border-radius:20px;padding:40px;">
-
-    <h2 style="font-size:1.8rem;margin-bottom:10px;">
-      Exploring your style direction
-    </h2>
-
-    <p style="color:#555;font-size:1rem;margin-bottom:30px;">
-      This is not about changing who you are —  
-      it’s about understanding what feels most aligned with you.
-    </p>
-
-    <div style="background:#ffffff;border-radius:16px;padding:30px;margin-bottom:20px;">
-      <h3>What this direction means</h3>
-      <p>
-        Based on your choices, this direction focuses on balance, realism and long-term harmony.
-        It does not aim for dramatic transformation, but thoughtful refinement.
-      </p>
-    </div>
-
-    <div style="background:#ffffff;border-radius:16px;padding:30px;margin-bottom:20px;">
-      <h3>What you may explore here</h3>
-      <ul style="line-height:1.8;">
-        <li>Hairstyle and colour directions that feel natural to you</li>
-        <li>Overall appearance balance and personal presence</li>
-        <li>Care-focused improvements rather than surface changes</li>
-      </ul>
-    </div>
-
-    <div style="background:#ffffff;border-radius:16px;padding:30px;margin-bottom:20px;">
-      <h3>What this is not</h3>
-      <ul style="line-height:1.8;">
-        <li>No pressure to change</li>
-        <li>No “ideal face” or model reference</li>
-        <li>No promise of specific outcomes</li>
-      </ul>
-    </div>
-
-    <div style="background:#ffffff;border-radius:16px;padding:30px;">
-      <h3>What comes next</h3>
-      <p>
-        When you’re ready, you’ll be able to explore this direction using your own photo —  
-        at your own pace, with full control.
-      </p>
-      <p style="font-size:0.9rem;color:#777;">
-        Personalised AI visual preview is coming next.
-      </p>
-    </div>
-
-  </div>
-</section>
 
 <body>
 
+  <!-- Language Switch -->
+  <div class="language-switch">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('zh')">中文</button>
+  </div>
+
   <div class="container">
 
-    <h1>See yourself more clearly.</h1>
+    <!-- Header -->
+    <h1>
+      <span class="lang en">See yourself more clearly.</span>
+      <span class="lang zh">更清晰地看见自己。</span>
+    </h1>
+
     <div class="subtitle">
-      Not to change who you are — but to understand who you could become.
+      <span class="lang en">
+        Not to change who you are — but to understand who you could become.
+      </span>
+      <span class="lang zh">
+        不是改变你是谁，而是理解你可以成为什么样的人。
+      </span>
     </div>
 
-    (No subject)
-​
-<section class="explore">
+    <!-- Card 1 -->
+    <div class="card">
+      <h2>
+        <span class="lang en">Soft Natural Balance</span>
+        <span class="lang zh">自然平衡型</span>
+      </h2>
 
-  <h2>
-    Explore your style directions  
-    <span style="display:block;font-size:0.9rem;color:#666;">
-      探索你的个人风格方向
-    </span>
-  </h2>
+      <div class="feeling">
+        <span class="lang en">
+          A gentle refinement that feels effortless and authentic.
+        </span>
+        <span class="lang zh">
+          轻柔、真实、不刻意的提升。
+        </span>
+      </div>
 
-  <p>
-    These are not final outcomes — but thoughtful directions to help you visualise what may suit you.  
-    <br>
-    <span style="color:#666;">
-      这些不是最终结果，而是帮助你理解「什么可能适合你」的参考方向。
-    </span>
-  </p>
+      <div class="section-title">
+        <span class="lang en">Why this might suit you</span>
+        <span class="lang zh">为什么你可能适合这个方向</span>
+      </div>
 
-  <!-- Card 1 -->
-  <div class="card">
-    <h3>
-      Soft Natural Balance  
-      <span style="display:block;font-size:0.85rem;color:#666;">
-        自然平衡型风格
-      </span>
-    </h3>
+      <p>
+        <span class="lang en">
+          You may prefer changes that feel natural rather than dramatic.
+          This direction enhances what you already have.
+        </span>
+        <span class="lang zh">
+          如果你更偏好自然、不夸张的改变，这个方向会强化你本来的优势。
+        </span>
+      </p>
 
-    <p>
-      A gentle refinement that feels effortless and authentic.  
-      <br>
-      <span style="color:#666;">
-        一种轻柔、自然、不刻意的优化方向。
-      </span>
-    </p>
+      <div class="section-title">
+        <span class="lang en">This direction can explore</span>
+        <span class="lang zh">这个方向可以探索</span>
+      </div>
 
-    <strong>
-      Why this might suit you  
-      <span style="display:block;font-size:0.85rem;color:#666;">
-        为什么你可能适合这个方向
-      </span>
-    </strong>
+      <ul>
+        <li>
+          <span class="lang en">Natural hairstyle balance</span>
+          <span class="lang zh">自然发型平衡</span>
+        </li>
+        <li>
+          <span class="lang en">Subtle colour refinement</span>
+          <span class="lang zh">细腻的发色优化</span>
+        </li>
+        <li>
+          <span class="lang en">Everyday appearance harmony</span>
+          <span class="lang zh">日常形象协调感</span>
+        </li>
+      </ul>
 
-    <p>
-      You may prefer changes that feel subtle and true to yourself rather than dramatic transformation.  
-      <br>
-      <span style="color:#666;">
-        你可能更倾向于自然、真实的改变，而不是明显或夸张的转变。
-      </span>
-    </p>
-
-    <ul>
-      <li>
-        Natural hairstyle balance  
-        <span style="color:#666;">｜自然发型比例</span>
-      </li>
-      <li>
-        Subtle colour refinement  
-        <span style="color:#666;">｜柔和发色调整</span>
-      </li>
-      <li>
-        Everyday appearance harmony  
-        <span style="color:#666;">｜日常外观协调感</span>
-      </li>
-    </ul>
-
-    <button>Explore this direction ｜探索这个方向</button>
-  </div>
-
-  <!-- Card 2 -->
-  <div class="card">
-    <h3>
-      Balanced Transformation  
-      <span style="display:block;font-size:0.85rem;color:#666;">
-        平衡型改变方向
-      </span>
-    </h3>
-
-    <p>
-      A visible change that still feels like you.  
-      <br>
-      <span style="color:#666;">
-        看得见的改变，但依然是“你自己”。
-      </span>
-    </p>
-
-    <strong>
-      Why this might suit you  
-      <span style="display:block;font-size:0.85rem;color:#666;">
-        为什么你可能适合这个方向
-      </span>
-    </strong>
-
-    <p>
-      You're open to improvement, but only when it aligns with your comfort and lifestyle.  
-      <br>
-      <span style="color:#666;">
-        你愿意尝试改变，但前提是符合你的生活方式与心理舒适度。
-      </span>
-    </p>
-
-    <ul>
-      <li>
-        Structured hairstyle updates  
-        <span style="color:#666;">｜更有结构感的发型调整</span>
-      </li>
-      <li>
-        Balanced makeup or grooming shifts  
-        <span style="color:#666;">｜适度妆容或修饰变化</span>
-      </li>
-      <li>
-        Medium-term aesthetic planning  
-        <span style="color:#666;">｜中期形象规划</span>
-      </li>
-    </ul>
-
-    <button>Explore this direction ｜探索这个方向</button>
-  </div>
-
-  <!-- Card 3 -->
-  <div class="card">
-    <h3>
-      Future Possibility Mapping  
-      <span style="display:block;font-size:0.85rem;color:#666;">
-        未来可能性探索
-      </span>
-    </h3>
-
-    <p>
-      Visualising what you could become — without pressure or commitment.  
-      <br>
-      <span style="color:#666;">
-        在没有压力的前提下，看看你“可能成为的样子”。
-      </span>
-    </p>
-
-    <strong>
-      Why this might suit you  
-      <span style="display:block;font-size:0.85rem;color:#666;">
-        为什么你可能会对这个方向感兴趣
-      </span>
-    </strong>
-
-    <p>
-      You're curious about future changes, even if they are not for now.  
-      <br>
-      <span style="color:#666;">
-        你对未来的自己感到好奇，但并不急于做决定。
-      </span>
-    </p>
-
-    <ul>
-      <li>
-        Visual exploration of future looks  
-        <span style="color:#666;">｜未来形象的视觉探索</span>
-      </li>
-      <li>
-        Aesthetic inspiration without obligation  
-        <span style="color:#666;">｜无承诺的审美参考</span>
-      </li>
-      <li>
-        Thoughtful self-reflection  
-        <span style="color:#666;">｜更深入的自我理解</span>
-      </li>
-    </ul>
-
-    <button>Explore this direction ｜探索这个方向</button>
-  </div>
-
-</section>
-
-<!-- Safety note -->
-    <div class="note">
-      <strong>Important note</strong><br /><br />
-      iStyle provides visual and directional exploration only.
-      All suggestions are non-medical, non-binding, and should always be
-      considered alongside professional advice and personal circumstances.
+      <button>
+        <span class="lang en">Explore this direction</span>
+        <span class="lang zh">探索这个方向</span>
+      </button>
     </div>
 
-    <div class="footer">
-      © iStyle — Visual exploration for informed personal choice
+    <!-- Card 2 -->
+    <div class="card">
+      <h2>
+        <span class="lang en">Balanced Transformation</span>
+        <span class="lang zh">平衡型改变</span>
+      </h2>
+
+      <div class="feeling">
+        <span class="lang en">
+          A visible change that still feels like you.
+        </span>
+        <span class="lang zh">
+          看得见的改变，但依然是你自己。
+        </span>
+      </div>
+
+      <div class="section-title">
+        <span class="lang en">Why this might suit you</span>
+        <span class="lang zh">为什么你可能适合这个方向</span>
+      </div>
+
+      <p>
+        <span class="lang en">
+          You're open to improvement, but only when it aligns with your
+          comfort and lifestyle.
+        </span>
+        <span class="lang zh">
+          你愿意改变，但前提是符合你的生活方式与心理舒适度。
+        </span>
+      </p>
+
+      <ul>
+        <li>
+          <span class="lang en">Structured hairstyle updates</span>
+          <span class="lang zh">更有结构感的发型调整</span>
+        </li>
+        <li>
+          <span class="lang en">Balanced makeup or grooming shifts</span>
+          <span class="lang zh">适度的妆容或修饰变化</span>
+        </li>
+        <li>
+          <span class="lang en">Medium-term aesthetic planning</span>
+          <span class="lang zh">中期形象规划</span>
+        </li>
+      </ul>
+
+      <button>
+        <span class="lang en">Explore this direction</span>
+        <span class="lang zh">探索这个方向</span>
+      </button>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <h2>
+        <span class="lang en">Future Possibility Mapping</span>
+        <span class="lang zh">未来可能性探索</span>
+      </h2>
+
+      <div class="feeling">
+        <span class="lang en">
+          Exploring who you could become — without pressure.
+        </span>
+        <span class="lang zh">
+          在没有压力的情况下，看见未来的自己。
+        </span>
+      </div>
+
+      <p>
+        <span class="lang en">
+          For those curious about future identity and aesthetic directions,
+          without needing to decide now.
+        </span>
+        <span class="lang zh">
+          适合对未来形象感到好奇，但不急于做决定的人。
+        </span>
+      </p>
+
+      <ul>
+        <li>
+          <span class="lang en">Future-oriented appearance concepts</span>
+          <span class="lang zh">未来形象概念探索</span>
+        </li>
+        <li>
+          <span class="lang en">Aesthetic inspiration without obligation</span>
+          <span class="lang zh">无压力的审美灵感</span>
+        </li>
+        <li>
+          <span class="lang en">Thoughtful self-reflection</span>
+          <span class="lang zh">更深层的自我理解</span>
+        </li>
+      </ul>
+
+      <button>
+        <span class="lang en">Explore this direction</span>
+        <span class="lang zh">探索这个方向</span>
+      </button>
     </div>
 
   </div>
-(No subject)
-​
+
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('.lang').forEach(el => {
+        el.style.display = 'none';
+      });
+      document.querySelectorAll('.lang.' + lang).forEach(el => {
+        el.style.display = 'inline';
+      });
+    }
+
+    // Default language
+    setLanguage('en');
+  </script>
+
 </body>
 </html>
+
+获取 Outlook for iOS
