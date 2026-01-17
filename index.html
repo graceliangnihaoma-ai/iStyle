@@ -1,194 +1,351 @@
-​<!DOCTYPE html>
+(No subject)
+
+Alice Leung
+​You​
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>iStyle</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <meta charset="utf-8" />
+  <title>iStyle — See yourself more clearly</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f7f7f6;
-      color: #111;
+    :root{
+      --bg:#fbfbfa;
+      --muted:#616161;
+      --accent:#0f1720;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.65);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,#fbfbfa 0%, #f0f0f2 100%);
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 40px;
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:24px 40px;
+    }
+    .logo{font-weight:700; letter-spacing:0.2px}
+    .lang{display:flex; gap:8px}
+    .lang button{
+      border:1px solid rgba(16,24,32,0.08);
+      background:transparent;
+      padding:6px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:13px;
+    }
+    .lang button.active{
+      background:var(--accent);
+      color:#fff;
+      border-color:var(--accent);
     }
 
-    .logo {
-      font-weight: 600;
-      font-size: 18px;
+    main{max-width:1250px;margin:40px auto;padding:0 28px;}
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 540px;
+      gap:48px;
+      align-items:center;
+      min-height:540px;
     }
 
-    .lang-toggle button {
-      background: none;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      padding: 6px 14px;
-      margin-left: 8px;
-      cursor: pointer;
-      font-size: 13px;
+    /* Left panel (copy) */
+    .hero-left h1{
+      margin:0 0 18px 0;
+      font-size:48px;
+      line-height:1.05;
+      font-weight:700;
+    }
+    .hero-left p{
+      margin:0 0 28px 0;
+      color:var(--muted);
+      font-size:16px;
+      max-width:620px;
+    }
+    .cta-row{display:flex;gap:14px;align-items:center}
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+      letter-spacing:0.2px;
+      box-shadow: 0 6px 20px rgba(16,24,32,0.08);
+    }
+    .btn.secondary{
+      background:transparent;color:var(--accent);border:1px solid rgba(16,24,32,0.06);
+      box-shadow:none;padding:12px 18px;border-radius:12px;font-weight:600;
     }
 
-    .lang-toggle button.active {
-      background: #111;
-      color: #fff;
-      border-color: #111;
+    /* Right visual */
+    .visual{
+      position:relative;
+      height:440px;
+      border-radius:var(--radius);
+      background: linear-gradient(135deg, rgba(12,16,20,0.03), rgba(0,0,0,0.02));
+      padding:28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      box-shadow: 0 10px 40px rgba(16,24,32,0.04);
     }
 
-    .hero {
-      max-width: 1200px;
-      margin: 80px auto;
-      padding: 0 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
+    /* subtle animated backdrop (flow) */
+    .flow{
+      position:absolute; inset:0; pointer-events:none; opacity:0.25;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(211, 179, 252, 0.18), transparent 8%),
+        radial-gradient(circle at 80% 60%, rgba(156, 220, 255, 0.12), transparent 10%);
+      transform: translateX(0);
+      animation: flow 12s linear infinite alternate;
+    }
+    @keyframes flow{ from{transform:translateX(-6%)} to{transform:translateX(6%)} }
+
+    /* slider area */
+    .slider{
+      position:relative;
+      width:100%;
+      height:100%;
+      display:flex;
+      gap:18px;
+      align-items:center;
+      justify-content:center;
     }
 
-    .hero h1 {
-      font-size: 44px;
-      font-weight: 500;
-      line-height: 1.2;
-      margin-bottom: 20px;
+    .slide{
+      width:320px;
+      height:360px;
+      background:linear-gradient(180deg,#fff,#fbfbfb);
+      border-radius:14px;
+      box-shadow: 0 6px 24px rgba(12,18,24,0.06);
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      transition: transform .45s cubic-bezier(.2,.9,.3,1), opacity .35s;
     }
 
-    .hero p {
-      font-size: 16px;
-      color: #444;
-      max-width: 420px;
-      margin-bottom: 32px;
+    .slide.hidden{opacity:0.04;transform:scale(0.96)}
+    .preview-img{
+      width:220px;height:220px;border-radius:14px;background:linear-gradient(180deg,#eee,#ddd);
+      display:flex;align-items:center;justify-content:center;overflow:hidden;
+      margin-bottom:12px;
+    }
+    .preview-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .slide h4{margin:6px 0 0 0;font-size:16px}
+    .slide p{font-size:13px;color:var(--muted);text-align:center;margin:8px 0 0 0}
+
+    .slider-controls{
+      position:absolute;bottom:18px;left:18px;display:flex;gap:8px;
+    }
+    .dot{width:8px;height:8px;border-radius:999px;background:rgba(16,24,32,0.12);cursor:pointer}
+    .dot.active{background:#111;transform:scale(1.1)}
+
+    .caption{
+      position:absolute;top:16px;left:18px;font-size:12px;color:var(--muted)
     }
 
-    .hero button {
-      background: #111;
-      color: #fff;
-      border: none;
-      padding: 14px 28px;
-      border-radius: 28px;
-      font-size: 15px;
-      cursor: pointer;
+    /* mobile */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:26px;padding-bottom:40px}
+      .hero-left h1{font-size:36px}
+      .visual{height:360px}
+      .slide{width:90%;height:300px}
     }
 
-    /* Right visual placeholder */
-    .visual {
-      position: relative;
-      height: 420px;
-      background: #e9e9e7;
-      border-radius: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .face {
-      width: 180px;
-      height: 220px;
-      background: #d6d6d4;
-      border-radius: 90px;
-    }
-
-    .option {
-      position: absolute;
-      width: 120px;
-      height: 150px;
-      background: #ccc;
-      border-radius: 60px;
-      bottom: 30px;
-    }
-
-    .option.left {
-      left: 40px;
-    }
-
-    .option.right {
-      right: 40px;
-    }
-
-    .option-label {
-      position: absolute;
-      bottom: -24px;
-      width: 100%;
-      text-align: center;
-      font-size: 12px;
-      color: #666;
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
-
 <body>
 
 <header>
   <div class="logo">iStyle</div>
-  <div class="lang-toggle">
-    <button class="active" onclick="setLang('en')">EN</button>
-    <button onclick="setLang('zh')">中文</button>
+  <div class="lang">
+    <button id="btn-en" class="active" onclick="setLang('en', this)">EN</button>
+    <button id="btn-zh" onclick="setLang('zh', this)">中文</button>
   </div>
 </header>
 
-<section class="hero">
-  <!-- Left content -->
-  <div>
-    <h1 id="title">
-      Upload your photo.<br>
-      See what truly suits your look.
-    </h1>
+<main>
+  <section class="hero">
+    <div class="hero-left">
+      <h1 id="hero-title">Upload your photo.<br>See what truly suits your look.</h1>
+      <p id="hero-sub">Personalised appearance suggestions — visualised before you decide. Try an instant preview with your own photo.</p>
 
-    <p id="subtitle">
-      Personalised appearance suggestions — visualised before you decide.
-    </p>
-
-    <button id="cta">Upload my photo</button>
-  </div>
-
-  <!-- Right visual -->
-  <div class="visual">
-    <div class="face"></div>
-
-    <div class="option left">
-      <div class="option-label">Option A</div>
+      <div class="cta-row">
+        <button class="btn" id="uploadBtn">Upload my photo</button>
+        <button class="btn secondary" id="tryDemo">See demo styles</button>
+      </div>
     </div>
 
-    <div class="option right">
-      <div class="option-label">Option B</div>
+    <div class="visual" aria-hidden="false">
+      <div class="flow" aria-hidden="true"></div>
+
+      <div class="slider" id="slider">
+        <!-- Slide 0: preview (will show uploaded image if provided) -->
+        <div class="slide" id="slide-0">
+          <div class="preview-img" id="previewBox">
+            <div style="color:#888;font-size:13px">Your photo preview</div>
+          </div>
+          <h4 id="s0-title">Personal preview</h4>
+          <p id="s0-sub">Upload a clear front-facing photo to see tailored suggestions.</p>
+        </div>
+
+        <!-- Slide 1: style concept A -->
+        <div class="slide hidden" id="slide-1">
+          <div class="preview-img" style="background:linear-gradient(180deg,#fbe7f9,#efe6ff)">
+            <div style="font-size:40px;color:#9a6cff">A</div>
+          </div>
+          <h4>Soft Natural Balance</h4>
+          <p>Subtle, everyday direction that enhances your natural features.</p>
+        </div>
+
+        <!-- Slide 2: style concept B -->
+        <div class="slide hidden" id="slide-2">
+          <div class="preview-img" style="background:linear-gradient(180deg,#e6f7ff,#e9f8f8)">
+            <div style="font-size:40px;color:#3aa0ff">B</div>
+          </div>
+          <h4>Balanced Transformation</h4>
+          <p>Visible updates that still read like you — structured and modern.</p>
+        </div>
+      </div>
+
+      <div class="slider-controls" id="dots" aria-hidden="true">
+        <div class="dot active" data-index="0" onclick="goTo(0)"></div>
+        <div class="dot" data-index="1" onclick="goTo(1)"></div>
+        <div class="dot" data-index="2" onclick="goTo(2)"></div>
+      </div>
+      <div class="caption" id="caption">Preview</div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
+
+<!-- hidden file input -->
+<input id="fileInput" type="file" accept="image/*" style="display:none" />
 
 <script>
-  function setLang(lang) {
-    const title = document.getElementById('title');
-    const subtitle = document.getElementById('subtitle');
-    const cta = document.getElementById('cta');
-
-    document.querySelectorAll('.lang-toggle button')
-      .forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-
-    if (lang === 'zh') {
-      title.innerHTML = '上传你的照片，<br>看看什么才真正适合你';
-      subtitle.innerHTML = '基于你本人形象的个性化建议，在决定之前先看到效果';
-      cta.innerHTML = '上传我的照片';
-    } else {
-      title.innerHTML = 'Upload your photo.<br>See what truly suits your look.';
-      subtitle.innerHTML = 'Personalised appearance suggestions — visualised before you decide.';
-      cta.innerHTML = 'Upload my photo';
+  // --- bilingual strings ---
+  const TEXT = {
+    en:{
+      title: "Upload your photo.<br>See what truly suits your look.",
+      sub: "Personalised appearance suggestions — visualised before you decide. Try an instant preview with your own photo.",
+      uploadCta: "Upload my photo",
+      demo: "See demo styles",
+      previewTitle: "Personal preview",
+      previewSub: "Upload a clear front-facing photo to see tailored suggestions.",
+      caption: "Preview"
+    },
+    zh:{
+      title: "上传你的照片。<br>看看真正适合你的样子。",
+      sub: "基于你本人的个性化建议 — 在决定之前先看到可视化效果。试试上传照片预览。",
+      uploadCta: "上传我的照片",
+      demo: "查看示例风格",
+      previewTitle: "个人预览",
+      previewSub: "上传清晰正面照片以查看为你定制的建议。",
+      caption: "预览"
     }
-  }
-</script>
+  };
 
+  // init
+  let lang = 'en';
+  const btnEn = document.getElementById('btn-en');
+  const btnZh = document.getElementById('btn-zh');
+
+  function setLang(l, btn){
+    lang = l;
+    // buttons
+    btnEn.classList.toggle('active', l==='en');
+    btnZh.classList.toggle('active', l==='zh');
+
+    // text
+    const t = TEXT[l];
+    document.getElementById('hero-title').innerHTML = t.title;
+    document.getElementById('hero-sub').textContent = t.sub;
+    document.getElementById('uploadBtn').textContent = t.uploadCta;
+    document.getElementById('tryDemo').textContent = t.demo;
+    document.getElementById('s0-title').textContent = t.previewTitle;
+    document.getElementById('s0-sub').textContent = t.previewSub;
+    document.getElementById('caption').textContent = t.caption;
+  }
+
+  // slider logic
+  let current = 0;
+  const slides = [document.getElementById('slide-0'), document.getElementById('slide-1'), document.getElementById('slide-2')];
+  const dots   = Array.from(document.querySelectorAll('.dot'));
+  function goTo(i){
+    slots = slides.length;
+    if(i<0) i = slides.length-1;
+    if(i>=slides.length) i=0;
+    slides.forEach((s,idx) => s.classList.toggle('hidden', idx!==i));
+    dots.forEach((d,idx) => d.classList.toggle('active', idx===i));
+    current = i;
+    const labels = ["Preview","A","B"];
+    document.getElementById('caption').textContent = (lang==='zh' ? ["预览","风格A","风格B"][i] : labels[i]);
+  }
+
+  // auto rotate every 5s (but stops if user interacts via upload)
+  let rotate = setInterval(() => {
+    goTo((current+1)%slides.length);
+  }, 5000);
+
+  // upload flow
+  const fileInput = document.getElementById('fileInput');
+  const uploadBtn = document.getElementById('uploadBtn');
+  uploadBtn.addEventListener('click', () => fileInput.click());
+
+  fileInput.addEventListener('change', (e) => {
+    const f = e.target.files && e.target.files[0];
+    if(!f) return;
+    // preview
+    const reader = new FileReader();
+    reader.onload = function(ev){
+      renderPreview(ev.target.result);
+      // show preview slide
+      goTo(0);
+      // stop automatic rotation to keep preview visible
+      clearInterval(rotate);
+    };
+    reader.readAsDataURL(f);
+  });
+
+  function renderPreview(dataUrl){
+    const box = document.getElementById('previewBox');
+    box.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = dataUrl;
+    img.alt = (lang==='zh' ? '你的照片预览' : 'Your photo preview');
+    box.appendChild(img);
+
+    // optional: produce quick tints / style overlays for demo (client-only)
+    // We also update s0 text to reflect loaded state
+    document.getElementById('s0-sub').textContent = (lang==='zh' ? '已加载照片 — 向下查看示例风格' : 'Photo loaded — view demo styles below');
+  }
+
+  // demo styles button: jumps to next slide
+  document.getElementById('tryDemo').addEventListener('click', () => {
+    goTo((current+1)%slides.length);
+    clearInterval(rotate);
+  });
+
+  // initial language set
+  setLang('en');
+
+</script>
 </body>
 </html>
+
+获取 Outlook for iOS
