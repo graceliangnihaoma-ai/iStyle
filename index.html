@@ -2,66 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>iStyle — Explore What Works With You</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>iStyle – See Yourself More Clearly</title>
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
       margin: 0;
-      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: #fafafa;
-      color: #222;
+      color: #111;
+      line-height: 1.6;
     }
     header {
       padding: 80px 20px;
       text-align: center;
-      background: #ffffff;
+      background: linear-gradient(135deg, #f5f5f5, #eaeaea);
     }
-    header h1 {
-      font-size: 48px;
-      margin-bottom: 16px;
-      font-weight: 600;
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
     }
-    header p {
-      font-size: 18px;
-      color: #555;
-      max-width: 600px;
-      margin: 0 auto 40px;
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 0;
+      font-weight: normal;
+      color: #444;
+    }
+    .cta {
+      margin-top: 30px;
     }
     button {
       padding: 14px 28px;
-      font-size: 16px;
+      font-size: 1rem;
       border: none;
       border-radius: 30px;
-      background: #000;
-      color: #fff;
       cursor: pointer;
+      background: #111;
+      color: #fff;
+    }
+    button.secondary {
+      background: #ddd;
+      color: #111;
+      margin-left: 10px;
     }
     section {
+      padding: 60px 20px;
       max-width: 900px;
-      margin: 80px auto;
-      padding: 0 20px;
+      margin: auto;
     }
-    h2 {
-      font-size: 32px;
-      margin-bottom: 16px;
+    .three-cols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
-    p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #444;
-    }
-    .mode {
-      background: #ffffff;
+    .card {
+      background: #fff;
+      padding: 30px;
       border-radius: 16px;
-      padding: 40px;
-      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
     footer {
-      text-align: center;
       padding: 40px 20px;
-      font-size: 14px;
-      color: #777;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 40px;
+      max-width: 520px;
+      width: 90%;
+      border-radius: 20px;
+      text-align: center;
+    }
+    .options button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      background: #f0f0f0;
+      color: #111;
     }
   </style>
 </head>
@@ -69,67 +99,92 @@
 <body>
 
 <header>
-  <h1>iStyle</h1>
-  <p>
-    Explore what works with you — not what changes you.<br />
-    A thoughtful AI platform for hair, skin, style and aesthetic direction.
-  </p>
-  <button>Try AI Style Preview</button>
+  <h1>See yourself more clearly.</h1>
+  <h2>Not to change who you are — but to understand who you could become.</h2>
+  <div class="cta">
+    <button onclick="openModal()">Try AI Style Preview</button>
+    <p style="margin-top:10px; color:#666;">No filters. No promises. Just clarity.</p>
+  </div>
 </header>
 
 <section>
-  <div class="mode">
-    <h2>🌿 Real Mode · Understand Me</h2>
-    <p>
-      Real Mode focuses on understanding who you already are.<br />
-      Hair, color, skincare and personal style suggestions are based on your
-      natural features — without changing your face.
-    </p>
-    <p>
-      You will receive several possible directions, not a single answer.
-      Every suggestion is meant to enhance, not replace, you.
-    </p>
-    <p>
-      <strong>Take what resonates. Leave what doesn’t.</strong>
-    </p>
-  </div>
-
-  <div class="mode">
-    <h2>✨ Dream Mode · Explore Possibilities</h2>
-    <p>
-      Dream Mode is optional and user-initiated.<br />
-      It allows you to explore future possibilities — makeup balance,
-      visual enhancement, or aesthetic directions.
-    </p>
-    <p>
-      All previews are conceptual references, not promises.
-      They exist to help you understand options and prepare informed conversations.
-    </p>
-    <p>
-      <strong>Every decision belongs to you.</strong>
-    </p>
-  </div>
-
-  <div class="mode">
-    <h2>About iStyle</h2>
-    <p>
-      iStyle is not here to change who you are.
-      It exists to help you understand what works with you —
-      your features, lifestyle, comfort and goals.
-    </p>
-    <p>
-      From hair and color to skincare and style,
-      iStyle offers clarity without pressure,
-      and possibility without perfection.
-    </p>
+  <h2 style="text-align:center;">What iStyle helps you do</h2>
+  <div class="three-cols">
+    <div class="card">
+      <h3>Explore directions</h3>
+      <p>Hairstyles, colours, care and overall aesthetic possibilities — based on you, not models.</p>
+    </div>
+    <div class="card">
+      <h3>Understand before deciding</h3>
+      <p>Visualise options before making any real-world changes or commitments.</p>
+    </div>
+    <div class="card">
+      <h3>Stay in control</h3>
+      <p>No pressure. No judgement. Your pace, your choice.</p>
+    </div>
   </div>
 </section>
 
+<section style="text-align:center;">
+  <p style="font-size:1.2rem;">
+    We don’t redesign your face.<br>
+    We don’t promise outcomes.<br>
+    We help you see possibilities — safely and realistically.
+  </p>
+</section>
+
 <footer>
-  © iStyle — Visual reference only. All decisions should be made based on personal circumstances and professional advice.
+  iStyle respects individuality, realism and choice.<br>
+  Beauty is personal. Direction matters more than perfection.
 </footer>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content" id="modalContent">
+    <h2>Before we begin</h2>
+    <p>
+      We don’t redesign your face.<br>
+      We help you explore directions — not outcomes.
+    </p>
+    <button onclick="showOptions()">Continue</button>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById('modal').style.display = 'flex';
+  }
+
+  function showOptions() {
+    document.getElementById('modalContent').innerHTML = `
+      <h2>What would you like to explore today?</h2>
+      <div class="options">
+        <button onclick="showResult()">Hairstyle & hair colour</button>
+        <button onclick="showResult()">Hair care, scalp & thinning</button>
+        <button onclick="showResult()">Makeup & overall aesthetic</button>
+        <button onclick="showResult()">Future appearance possibilities</button>
+      </div>
+    `;
+  }
+
+  function showResult() {
+    document.getElementById('modalContent').innerHTML = `
+      <h2>Your Style Directions</h2>
+      <p>
+        These are not outcomes.<br>
+        They are possible directions based on balance, harmony and realism.
+      </p>
+      <p style="margin-top:20px; font-size:0.9rem; color:#666;">
+        Personalised AI analysis is coming soon.
+      </p>
+      <button onclick="closeModal()">Close</button>
+    `;
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
-
-  
