@@ -1,240 +1,196 @@
 ​<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>iStyle – See Yourself More Clearly</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>iStyle – See Yourself More Clearly</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #f5f5f5;
-      color: #111;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f4f4;
+    color: #111;
+  }
 
-    header {
-      max-width: 960px;
-      margin: 40px auto 20px;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+  header {
+    padding: 24px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    .brand {
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
+  .logo {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
 
-    .lang-switch button {
-      margin-left: 8px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      border: 1px solid #ccc;
-      background: #fff;
-      cursor: pointer;
-    }
+  .lang-toggle button {
+    margin-left: 8px;
+    padding: 6px 12px;
+    border-radius: 14px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    font-size: 12px;
+  }
 
-    .lang-switch button.active {
-      background: #111;
-      color: #fff;
-      border-color: #111;
-    }
+  .hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+  }
 
-    .hero {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
+  .hero h1 {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
 
-    .hero h1 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-    }
+  .hero p {
+    font-size: 16px;
+    color: #555;
+  }
 
-    .hero p {
-      font-size: 1rem;
-      color: #555;
-    }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
 
-    .cards {
-      max-width: 960px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+  .card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  }
 
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    }
+  .card h2 {
+    margin-top: 0;
+  }
 
-    .card h2 {
-      margin-top: 0;
-    }
+  .section-title {
+    margin-top: 18px;
+    font-weight: 600;
+  }
 
-    .feeling {
-      font-style: italic;
-      color: #666;
-      margin-bottom: 16px;
-    }
+  ul {
+    padding-left: 18px;
+  }
 
-    .section-title {
-      font-weight: 600;
-      margin-top: 16px;
-    }
+  button.explore {
+    margin-top: 18px;
+    padding: 10px 18px;
+    border-radius: 18px;
+    border: none;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+  }
 
-    ul {
-      padding-left: 18px;
-    }
-
-    button.explore {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border-radius: 30px;
-      border: none;
-      background: #111;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    /* language control */
-    [data-lang="zh"] {
-      display: none;
-    }
-  </style>
+  .zh { display: none; }
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="brand">iStyle</div>
-  <div class="lang-switch">
-    <button class="active" onclick="setLang('en')">EN</button>
+  <div class="logo">iStyle</div>
+  <div class="lang-toggle">
+    <button onclick="setLang('en')">EN</button>
     <button onclick="setLang('zh')">中文</button>
   </div>
 </header>
 
-<section class="hero">
-  <h1 data-lang="en">See yourself more clearly.</h1>
-  <h1 data-lang="zh">更清晰地看见自己。</h1>
-
-  <p data-lang="en">Not to change who you are — but to understand who you could become.</p>
-  <p data-lang="zh">不是为了改变你是谁，而是理解你可以成为谁。</p>
+<section class="hero en">
+  <h1>See yourself more clearly</h1>
+  <p>Not to change who you are — but to understand who you could become</p>
 </section>
 
-<section class="cards">
+<section class="hero zh">
+  <h1>更清晰地看见自己</h1>
+  <p>不是为了改变你是谁，而是理解你可以成为谁</p>
+</section>
+
+<div class="container">
 
   <!-- Card 1 -->
-  <div class="card">
-    <h2 data-lang="en">Soft Natural Balance</h2>
-    <h2 data-lang="zh">自然平衡风格</h2>
+  <div class="card en">
+    <h2>Soft Natural Balance</h2>
+    <p>A gentle refinement that feels effortless and authentic.</p>
 
-    <div class="feeling" data-lang="en">A gentle refinement that feels effortless and authentic.</div>
-    <div class="feeling" data-lang="zh">一种轻柔、不费力、真实自然的提升。</div>
+    <div class="section-title">Why this might suit you</div>
+    <p>You prefer subtle improvements that enhance what you already have.</p>
 
-    <div class="section-title" data-lang="en">Why this might suit you</div>
-    <div class="section-title" data-lang="zh">为什么你可能适合这个方向</div>
-
-    <p data-lang="en">You prefer subtle improvements that enhance what you already have.</p>
-    <p data-lang="zh">你偏好自然的改变，希望强化原本的自己。</p>
-
-    <div class="section-title" data-lang="en">This direction can explore</div>
-    <div class="section-title" data-lang="zh">这个方向可以探索</div>
-
-    <ul data-lang="en">
+    <div class="section-title">This direction can explore</div>
+    <ul>
       <li>Natural hairstyle balance</li>
       <li>Subtle colour refinement</li>
       <li>Everyday appearance harmony</li>
     </ul>
 
-    <ul data-lang="zh">
+    <button class="explore">Explore this direction</button>
+  </div>
+
+  <div class="card zh">
+    <h2>自然平衡风格</h2>
+    <p>一种轻柔、不费力、真实自然的提升</p>
+
+    <div class="section-title">为什么你可能适合这个方向</div>
+    <p>你偏好自然的改变，希望强化原本的自己</p>
+
+    <div class="section-title">这个方向可以探索</div>
+    <ul>
       <li>自然协调的发型</li>
       <li>细微而高级的发色调整</li>
       <li>日常外观的整体和谐感</li>
     </ul>
 
-    <button class="explore">Explore this direction</button>
+    <button class="explore">探索这个方向</button>
   </div>
 
   <!-- Card 2 -->
-  <div class="card">
-    <h2 data-lang="en">Balanced Transformation</h2>
-    <h2 data-lang="zh">平衡型改变方向</h2>
+  <div class="card en">
+    <h2>Balanced Transformation</h2>
+    <p>A visible change that still feels like you.</p>
 
-    <div class="feeling" data-lang="en">A visible change that still feels like you.</div>
-    <div class="feeling" data-lang="zh">看得见的改变，但依然是你自己 </div>
+    <div class="section-title">Why this might suit you</div>
+    <p>You are open to improvement when it aligns with comfort and lifestyle.</p>
 
-    <div class="section-title" data-lang="en">Why this might suit you</div>
-    <div class="section-title" data-lang="zh">为什么你可能适合这个方向</div>
-
-    <p data-lang="en">You are open to improvement when it aligns with comfort and lifestyle.</p>
-    <p data-lang="zh">你愿意改变，但前提是符合你的生活方式与舒适感 </p>
-
-    <ul data-lang="en">
+    <div class="section-title">This direction can explore</div>
+    <ul>
       <li>Structured hairstyle updates</li>
       <li>Balanced grooming or makeup shifts</li>
       <li>Medium-term aesthetic planning</li>
     </ul>
 
-    <ul data-lang="zh">
+    <button class="explore">Explore this direction</button>
+  </div>
+
+  <div class="card zh">
+    <h2>平衡型改变方向</h2>
+    <p>看得见的改变，但依然是你自己</p>
+
+    <div class="section-title">为什么你可能适合这个方向</div>
+    <p>你愿意尝试改变，但前提是符合你的生活方式与舒适度</p>
+
+    <div class="section-title">这个方向可以探索</div>
+    <ul>
       <li>更有结构感的发型调整</li>
-      <li>适度的妆容或修饰变化</li>
+      <li>适度妆容或修饰变化</li>
       <li>中期形象规划</li>
     </ul>
 
-    <button class="explore">Explore this direction</button>
+    <button class="explore">探索这个方向</button>
   </div>
 
-  <!-- Card 3 -->
-  <div class="card">
-    <h2 data-lang="en">Future Possibility Mapping</h2>
-    <h2 data-lang="zh">未来可能性探索</h2>
-
-    <div class="feeling" data-lang="en">Visualising who you could become, without pressure.</div>
-    <div class="feeling" data-lang="zh">在没有压力的前提下，看见未来的可能。</div>
-
-    <div class="section-title" data-lang="en">Why this might suit you</div>
-    <div class="section-title" data-lang="zh">为什么你可能适合这个方向</div>
-
-    <p data-lang="en">You are curious about future versions of yourself.</p>
-    <p data-lang="zh">你对未来的自己充满好奇。</p>
-
-    <ul data-lang="en">
-      <li>Future appearance concepts</li>
-      <li>Aesthetic inspiration without obligation</li>
-      <li>Thoughtful self-reflection</li>
-    </ul>
-
-    <ul data-lang="zh">
-      <li>未来形象的视觉探索</li>
-      <li>没有承诺压力的审美灵感</li>
-      <li>更深层的自我理解</li>
-    </ul>
-
-    <button class="explore">Explore this direction</button>
-  </div>
-
-</section>
+</div>
 
 <script>
-  function setLang(lang) {
-    document.querySelectorAll('[data-lang]').forEach(el => {
-      el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
-    });
-
-    document.querySelectorAll('.lang-switch button').forEach(btn => {
-      btn.classList.remove('active');
-    });
-
-    document.querySelector(`.lang-switch button[onclick="setLang('${lang}')"]`).classList.add('active');
-  }
+function setLang(lang) {
+  document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+  document.querySelectorAll('.zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
+}
 </script>
 
 </body>
 </html>
-
