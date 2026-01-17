@@ -65,6 +65,10 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.06);
   }
 
+  .card h3 {
+    margin-top: 0;
+  }
+
   button.explore {
     margin-top: 16px;
     padding: 10px 18px;
@@ -81,6 +85,13 @@
     color: #777;
   }
 
+  .ai-note {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+  }
+
   .saved-box {
     background: #fff;
     border-radius: 16px;
@@ -91,7 +102,11 @@
 
   .saved-title {
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+  }
+
+  .saved-item {
+    margin-bottom: 4px;
   }
 
   .zh { display: none; }
@@ -156,24 +171,62 @@
 
 <div class="container">
 
+  <!-- Direction 1 -->
   <div class="card en">
     <h3>Soft Natural Balance</h3>
     <p>A gentle refinement that feels effortless and authentic.</p>
-    <button class="explore" onclick="openModal()">Explore this direction</button>
+    <button class="explore" onclick="openModal('Soft Natural Balance','自然平衡风格')">Explore this direction</button>
     <div class="hint">This is a space to understand directions, not promises.</div>
+    <div class="ai-note">AI visual preview — coming later</div>
   </div>
 
   <div class="card zh">
     <h3>自然平衡风格</h3>
     <p>一种轻柔、不费力、真实自然的提升</p>
-    <button class="explore" onclick="openModal()">探索这个方向</button>
+    <button class="explore" onclick="openModal('Soft Natural Balance','自然平衡风格')">探索这个方向</button>
     <div class="hint">这是一个理解方向的空间，而不是承诺结果</div>
+    <div class="ai-note">AI 视觉预览（即将推出）</div>
   </div>
 
+  <!-- Direction 2 -->
+  <div class="card en">
+    <h3>Balanced Transformation</h3>
+    <p>A visible change that still feels like you.</p>
+    <button class="explore" onclick="openModal('Balanced Transformation','平衡型改变方向')">Explore this direction</button>
+    <div class="hint">This is a space to understand directions, not promises.</div>
+    <div class="ai-note">AI visual preview — coming later</div>
+  </div>
+
+  <div class="card zh">
+    <h3>平衡型改变方向</h3>
+    <p>看得见的改变，但依然是你自己</p>
+    <button class="explore" onclick="openModal('Balanced Transformation','平衡型改变方向')">探索这个方向</button>
+    <div class="hint">这是一个理解方向的空间，而不是承诺结果</div>
+    <div class="ai-note">AI 视觉预览（即将推出）</div>
+  </div>
+
+  <!-- Direction 3 -->
+  <div class="card en">
+    <h3>Future Possibility Mapping</h3>
+    <p>Exploring who you could become — without pressure.</p>
+    <button class="explore" onclick="openModal('Future Possibility Mapping','未来可能性探索')">Explore this direction</button>
+    <div class="hint">Curiosity is welcome. Commitment is not required.</div>
+    <div class="ai-note">AI visual preview — coming later</div>
+  </div>
+
+  <div class="card zh">
+    <h3>未来可能性探索</h3>
+    <p>在没有压力的前提下，看见未来的可能</p>
+    <button class="explore" onclick="openModal('Future Possibility Mapping','未来可能性探索')">探索这个方向</button>
+    <div class="hint">你可以只是好奇，而不必做出决定</div>
+    <div class="ai-note">AI 视觉预览（即将推出）</div>
+  </div>
+
+  <!-- Saved -->
   <div id="savedBox" class="saved-box" style="display:none;">
-    <div class="saved-title en">Your current exploration</div>
+    <div class="saved-title en">Your current explorations</div>
     <div class="saved-title zh">你正在探索的方向</div>
-    <div id="savedContent"></div>
+    <div id="savedList"></div>
   </div>
 
 </div>
@@ -182,20 +235,14 @@
   <div class="modal-content">
     <div class="en">
       <p>
-        You may be drawn to this direction not because you want to change,
-        but because you are seeking something that feels more natural and aligned.
-      </p>
-      <p>
-        There are no promises here. Only space to understand and choose.
+        This is a moment of exploration, not a decision.
+        You are allowed to be curious.
       </p>
     </div>
     <div class="zh">
       <p>
-        你被这个方向吸引，往往不是因为你想改变自己，
-        而是在寻找一种更自然、更适合自己的状态
-      </p>
-      <p>
-        这里没有承诺，只有理解与选择的空间
+        这是一个探索的时刻，而不是做决定的时刻
+        你可以只是好奇
       </p>
     </div>
 
@@ -207,12 +254,15 @@
 </div>
 
 <script>
+let currentDirection = null;
+
 function setLang(lang) {
   document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
   document.querySelectorAll('.zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
 }
 
-function openModal() {
+function openModal(en, zh) {
+  currentDirection = { en, zh };
   document.getElementById('modal').style.display = 'flex';
 }
 
@@ -221,24 +271,24 @@ function closeModal() {
 }
 
 function saveDirection() {
-  const direction = {
-    en: "Soft Natural Balance",
-    zh: "自然平衡风格"
-  };
-  localStorage.setItem("istyleDirection", JSON.stringify(direction));
+  let list = JSON.parse(localStorage.getItem('istyleDirections') || '[]');
+  if (!list.find(item => item.en === currentDirection.en)) {
+    list.push(currentDirection);
+    localStorage.setItem('istyleDirections', JSON.stringify(list));
+  }
   updateSaved();
   closeModal();
 }
 
 function updateSaved() {
-  const saved = localStorage.getItem("istyleDirection");
-  if (!saved) return;
-  const data = JSON.parse(saved);
-  document.getElementById("savedBox").style.display = "block";
-  document.getElementById("savedContent").innerHTML = `
-    <div class="en">${data.en}</div>
-    <div class="zh">${data.zh}</div>
-  `;
+  const list = JSON.parse(localStorage.getItem('istyleDirections') || '[]');
+  if (!list.length) return;
+
+  document.getElementById('savedBox').style.display = 'block';
+  document.getElementById('savedList').innerHTML = list.map(item =>
+    `<div class="saved-item en">• ${item.en}</div>
+     <div class="saved-item zh">• ${item.zh}</div>`
+  ).join('');
 }
 
 updateSaved();
