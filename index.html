@@ -6,160 +6,165 @@
 <title>iStyle – See Your True Self</title>
 
 <style>
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f4f4f4;
-    color: #111;
-  }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f4f4;
+  color: #111;
+}
 
-  header {
-    padding: 28px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+header {
+  padding: 32px 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .logo {
-    font-weight: 500;
-    letter-spacing: 0.4px;
-  }
+.logo {
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
 
-  .lang-toggle button {
-    margin-left: 8px;
-    padding: 6px 14px;
-    border-radius: 16px;
-    border: 1px solid #ccc;
-    background: #fff;
-    cursor: pointer;
-    font-size: 12px;
-  }
+.lang-toggle button {
+  margin-left: 8px;
+  padding: 6px 14px;
+  border-radius: 16px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  font-size: 12px;
+}
 
-  .hero {
-    text-align: center;
-    padding: 120px 20px 90px;
-  }
+.hero {
+  text-align: center;
+  padding: 140px 20px 100px;
+}
 
-  .hero h1 {
-    font-size: 44px;
-    margin-bottom: 12px;
-    font-weight: 600;
-  }
+.hero h1 {
+  font-size: 46px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
 
-  .hero h2 {
-    font-size: 20px;
-    font-weight: 400;
-    color: #666;
-    margin-top: 0;
-  }
+.hero h2 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #666;
+}
 
-  .container {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 32px;
-    margin-bottom: 36px;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.06);
-  }
+.card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 36px;
+  margin-bottom: 48px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+}
 
-  .card h3 {
-    margin-top: 0;
-    font-weight: 600;
-  }
+.card h3 {
+  margin-top: 0;
+  font-weight: 600;
+}
 
-  .card p {
-    color: #555;
-    line-height: 1.6;
-  }
+.card p {
+  color: #555;
+  line-height: 1.7;
+}
 
-  button.explore {
-    margin-top: 22px;
-    padding: 10px 22px;
-    border-radius: 22px;
-    border: none;
-    background: #111;
-    color: #fff;
-    cursor: pointer;
-  }
+button.explore {
+  margin-top: 26px;
+  padding: 10px 24px;
+  border-radius: 24px;
+  border: none;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
 
-  .ai-note {
-    margin-top: 16px;
-    font-size: 12px;
-    color: #999;
-    font-style: italic;
-  }
+.ai-visual {
+  margin-top: 22px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #fafafa;
+  border: 1px dashed #ddd;
+  font-size: 13px;
+  color: #777;
+}
 
-  .saved-box {
-    background: #fff;
-    border-radius: 18px;
-    padding: 24px;
-    margin-top: 60px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-  }
+.ai-visual span {
+  display: block;
+  margin-top: 6px;
+}
 
-  .saved-title {
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
+.saved-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  margin-top: 80px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+}
 
-  .saved-item {
-    margin-bottom: 6px;
-    color: #444;
-  }
+.saved-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
 
-  .zh { display: none; }
+.saved-item {
+  margin-bottom: 6px;
+}
 
-  /* Modal */
-  .modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
+.zh { display: none; }
 
-  .modal-content {
-    background: #fff;
-    border-radius: 24px;
-    padding: 36px;
-    max-width: 560px;
-    width: 90%;
-  }
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
-  .modal-content h4 {
-    margin-top: 0;
-    font-weight: 600;
-  }
+.modal-content {
+  background: #fff;
+  border-radius: 26px;
+  padding: 40px;
+  max-width: 580px;
+  width: 90%;
+}
 
-  .modal-content ul {
-    padding-left: 18px;
-    color: #555;
-  }
+.modal-content h4 {
+  margin-top: 0;
+  font-weight: 600;
+}
 
-  .modal-actions {
-    margin-top: 28px;
-    text-align: right;
-  }
+.modal-content ul {
+  padding-left: 18px;
+  color: #555;
+}
 
-  .modal-actions button {
-    margin-left: 10px;
-    padding: 8px 18px;
-    border-radius: 18px;
-    border: none;
-    cursor: pointer;
-  }
+.modal-actions {
+  margin-top: 30px;
+  text-align: right;
+}
 
-  .secondary {
-    background: #e6e6e6;
-    color: #111;
-  }
+.modal-actions button {
+  margin-left: 10px;
+  padding: 8px 18px;
+  border-radius: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.secondary {
+  background: #e6e6e6;
+}
 </style>
 </head>
 
@@ -185,119 +190,92 @@
 
 <div class="container">
 
-  <!-- Direction -->
+  <!-- Direction 1 -->
   <div class="card en">
     <h3>Soft Natural Balance</h3>
-    <p>A direction for those who value ease, authenticity, and low-pressure refinement.</p>
-    <button class="explore" onclick="openModal()">Explore this direction</button>
-    <div class="ai-note">AI visual exploration (non-model based) will be introduced when ready.</div>
+    <p>A direction focused on ease, authenticity, and long-term comfort.</p>
+    <button class="explore" onclick="openModal('soft')">Explore this direction</button>
+    <div class="ai-visual">
+      AI Visual Exploration (Concept)
+      <span>• Hair flow & density balance</span>
+      <span>• Soft contour & low contrast</span>
+      <span>• Calm, effortless presence</span>
+    </div>
   </div>
 
   <div class="card zh">
     <h3>自然平衡风格</h3>
-    <p>适合重视自然感、轻松感，以及不想被改变压力推动的人</p>
-    <button class="explore" onclick="openModal()">探索这个方向</button>
-    <div class="ai-note">AI 视觉探索（非模特方案）将在真正成熟时推出</div>
-  </div>
-
-  <!-- Saved -->
-  <div id="savedBox" class="saved-box" style="display:none;">
-    <div class="saved-title en">Your current explorations</div>
-    <div class="saved-title zh">你正在探索的方向</div>
-    <div id="savedList"></div>
-  </div>
-
-</div>
-
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <div class="en">
-      <h4>Why this direction resonates</h4>
-      <ul>
-        <li>You may value looking at ease rather than transformed</li>
-        <li>You may prefer refinement over contrast</li>
-        <li>You may not want ongoing maintenance pressure</li>
-      </ul>
-
-      <h4>What this direction intentionally avoids</h4>
-      <ul>
-        <li>Dramatic before-and-after narratives</li>
-        <li>Rapid or attention-seeking change</li>
-        <li>External standards of “better”</li>
-      </ul>
-
-      <p>
-        If you wish to continue, you can explore different visual states —
-        without deciding anything yet.
-      </p>
-    </div>
-
-    <div class="zh">
-      <h4>你为什么会被这个方向吸引</h4>
-      <ul>
-        <li>你可能更在意是否看起来轻松自然</li>
-        <li>你偏好细腻的改善，而不是强烈对比</li>
-        <li>你不希望被持续维护的压力推着走</li>
-      </ul>
-
-      <h4>这个方向刻意不追求什么</h4>
-      <ul>
-        <li>明显的前后对比</li>
-        <li>快速或引人注意的改变</li>
-        <li>来自他人的“标准答案”</li>
-      </ul>
-
-      <p>
-        如果你愿意，接下来可以看看不同的状态可能性  
-        而不必做出任何决定
-      </p>
-    </div>
-
-    <div class="modal-actions">
-      <button onclick="saveDirection()">Save this direction</button>
-      <button class="secondary" onclick="closeModal()">Close</button>
+    <p>强调轻松、真实，以及长期舒适感的方向。</p>
+    <button class="explore" onclick="openModal('soft')">探索这个方向</button>
+    <div class="ai-visual">
+      AI 视觉探索（概念示意）
+      <span>• 发丝流向与密度平衡</span>
+      <span>• 柔和轮廓与低对比</span>
+      <span>• 轻松、不费力的整体状态</span>
     </div>
   </div>
+
+  <!-- Direction 2 -->
+  <div class="card en">
+    <h3>Balanced Transformation</h3>
+    <p>A visible change that still feels aligned with who you are.</p>
+    <button class="explore" onclick="openModal('balanced')">Explore this direction</button>
+    <div class="ai-visual">
+      AI Visual Exploration (Concept)
+      <span>• Clear structure & refined outline</span>
+      <span>• Noticeable yet controlled contrast</span>
+      <span>• Intentional, confident presence</span>
+    </div>
+  </div>
+
+  <div class="card zh">
+    <h3>平衡型改变方向</h3>
+    <p>看得见的改变，但依然保持与你一致的状态。</p>
+    <button class="explore" onclick="openModal('balanced')">探索这个方向</button>
+    <div class="ai-visual">
+      AI 视觉探索（概念示意）
+      <span>• 清晰结构与精致轮廓</span>
+      <span>• 有控制的对比变化</span>
+      <span>• 稳定、自信的呈现感</span>
+    </div>
+  </div>
+
+  <!-- Direction 3 -->
+  <div class="card en">
+    <h3>Future Possibility Mapping</h3>
+    <p>A space to imagine future directions without commitment.</p>
+    <button class="explore" onclick="openModal('future')">Explore this direction</button>
+    <div class="ai-visual">
+      AI Visual Exploration (Concept)
+      <span>• Multiple parallel visual states</span>
+      <span>• No single outcome or answer</span>
+      <span>• Curiosity-led exploration</span>
+    </div>
+  </div>
+
+  <div class="card zh">
+    <h3>未来可能性探索</h3>
+    <p>在不做决定的前提下，想象未来的多种可能。</p>
+    <button class="explore" onclick="openModal('future')">探索这个方向</button>
+    <div class="ai-visual">
+      AI 视觉探索（概念示意）
+      <span>• 多种并行的状态可能</span>
+      <span>• 不设定唯一答案</span>
+      <span>• 以好奇心为起点</span>
+    </div>
+  </div>
+
 </div>
 
 <script>
-let currentDirection = { en: "Soft Natural Balance", zh: "自然平衡风格" };
-
 function setLang(lang) {
   document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
   document.querySelectorAll('.zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
 }
 
 function openModal() {
-  document.getElementById('modal').style.display = 'flex';
+  alert("This exploration focuses on understanding direction, not making decisions.");
 }
-
-function closeModal() {
-  document.getElementById('modal').style.display = 'none';
-}
-
-function saveDirection() {
-  let list = JSON.parse(localStorage.getItem('istyleDirections') || '[]');
-  if (!list.find(item => item.en === currentDirection.en)) {
-    list.push(currentDirection);
-    localStorage.setItem('istyleDirections', JSON.stringify(list));
-  }
-  updateSaved();
-  closeModal();
-}
-
-function updateSaved() {
-  const list = JSON.parse(localStorage.getItem('istyleDirections') || '[]');
-  if (!list.length) return;
-
-  document.getElementById('savedBox').style.display = 'block';
-  document.getElementById('savedList').innerHTML = list.map(item =>
-    `<div class="saved-item en">• ${item.en}</div>
-     <div class="saved-item zh">• ${item.zh}</div>`
-  ).join('');
-}
-
-updateSaved();
 </script>
 
 </body>
