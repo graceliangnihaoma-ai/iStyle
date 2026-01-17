@@ -14,7 +14,7 @@
   }
 
   header {
-    padding: 24px 40px;
+    padding: 28px 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,13 +22,13 @@
 
   .logo {
     font-weight: 500;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
   }
 
   .lang-toggle button {
     margin-left: 8px;
-    padding: 6px 12px;
-    border-radius: 14px;
+    padding: 6px 14px;
+    border-radius: 16px;
     border: 1px solid #ccc;
     background: #fff;
     cursor: pointer;
@@ -37,56 +37,58 @@
 
   .hero {
     text-align: center;
-    padding: 90px 20px 60px;
+    padding: 120px 20px 90px;
   }
 
   .hero h1 {
-    font-size: 42px;
-    margin-bottom: 10px;
+    font-size: 44px;
+    margin-bottom: 12px;
+    font-weight: 600;
   }
 
   .hero h2 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 400;
-    color: #555;
+    color: #666;
+    margin-top: 0;
   }
 
   .container {
-    max-width: 900px;
+    max-width: 880px;
     margin: 0 auto;
     padding: 20px;
   }
 
   .card {
     background: #fff;
-    border-radius: 18px;
-    padding: 28px;
-    margin-bottom: 28px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 36px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.06);
   }
 
   .card h3 {
     margin-top: 0;
+    font-weight: 600;
+  }
+
+  .card p {
+    color: #555;
+    line-height: 1.6;
   }
 
   button.explore {
-    margin-top: 16px;
-    padding: 10px 18px;
-    border-radius: 18px;
+    margin-top: 22px;
+    padding: 10px 22px;
+    border-radius: 22px;
     border: none;
     background: #111;
     color: #fff;
     cursor: pointer;
   }
 
-  .hint {
-    margin-top: 10px;
-    font-size: 13px;
-    color: #777;
-  }
-
   .ai-note {
-    margin-top: 14px;
+    margin-top: 16px;
     font-size: 12px;
     color: #999;
     font-style: italic;
@@ -94,19 +96,20 @@
 
   .saved-box {
     background: #fff;
-    border-radius: 16px;
-    padding: 20px;
-    margin-top: 40px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    border-radius: 18px;
+    padding: 24px;
+    margin-top: 60px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
   }
 
   .saved-title {
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .saved-item {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    color: #444;
   }
 
   .zh { display: none; }
@@ -124,27 +127,38 @@
 
   .modal-content {
     background: #fff;
-    border-radius: 20px;
-    padding: 32px;
-    max-width: 520px;
+    border-radius: 24px;
+    padding: 36px;
+    max-width: 560px;
     width: 90%;
   }
 
+  .modal-content h4 {
+    margin-top: 0;
+    font-weight: 600;
+  }
+
+  .modal-content ul {
+    padding-left: 18px;
+    color: #555;
+  }
+
   .modal-actions {
-    margin-top: 24px;
+    margin-top: 28px;
     text-align: right;
   }
 
   .modal-actions button {
     margin-left: 10px;
-    padding: 8px 16px;
-    border-radius: 14px;
+    padding: 8px 18px;
+    border-radius: 18px;
     border: none;
     cursor: pointer;
   }
 
   .secondary {
-    background: #e0e0e0;
+    background: #e6e6e6;
+    color: #111;
   }
 </style>
 </head>
@@ -171,55 +185,19 @@
 
 <div class="container">
 
-  <!-- Direction 1 -->
+  <!-- Direction -->
   <div class="card en">
     <h3>Soft Natural Balance</h3>
-    <p>A gentle refinement that feels effortless and authentic.</p>
-    <button class="explore" onclick="openModal('Soft Natural Balance','自然平衡风格')">Explore this direction</button>
-    <div class="hint">This is a space to understand directions, not promises.</div>
-    <div class="ai-note">AI visual preview — coming later</div>
+    <p>A direction for those who value ease, authenticity, and low-pressure refinement.</p>
+    <button class="explore" onclick="openModal()">Explore this direction</button>
+    <div class="ai-note">AI visual exploration (non-model based) will be introduced when ready.</div>
   </div>
 
   <div class="card zh">
     <h3>自然平衡风格</h3>
-    <p>一种轻柔、不费力、真实自然的提升</p>
-    <button class="explore" onclick="openModal('Soft Natural Balance','自然平衡风格')">探索这个方向</button>
-    <div class="hint">这是一个理解方向的空间，而不是承诺结果</div>
-    <div class="ai-note">AI 视觉预览（即将推出）</div>
-  </div>
-
-  <!-- Direction 2 -->
-  <div class="card en">
-    <h3>Balanced Transformation</h3>
-    <p>A visible change that still feels like you.</p>
-    <button class="explore" onclick="openModal('Balanced Transformation','平衡型改变方向')">Explore this direction</button>
-    <div class="hint">This is a space to understand directions, not promises.</div>
-    <div class="ai-note">AI visual preview — coming later</div>
-  </div>
-
-  <div class="card zh">
-    <h3>平衡型改变方向</h3>
-    <p>看得见的改变，但依然是你自己</p>
-    <button class="explore" onclick="openModal('Balanced Transformation','平衡型改变方向')">探索这个方向</button>
-    <div class="hint">这是一个理解方向的空间，而不是承诺结果</div>
-    <div class="ai-note">AI 视觉预览（即将推出）</div>
-  </div>
-
-  <!-- Direction 3 -->
-  <div class="card en">
-    <h3>Future Possibility Mapping</h3>
-    <p>Exploring who you could become — without pressure.</p>
-    <button class="explore" onclick="openModal('Future Possibility Mapping','未来可能性探索')">Explore this direction</button>
-    <div class="hint">Curiosity is welcome. Commitment is not required.</div>
-    <div class="ai-note">AI visual preview — coming later</div>
-  </div>
-
-  <div class="card zh">
-    <h3>未来可能性探索</h3>
-    <p>在没有压力的前提下，看见未来的可能</p>
-    <button class="explore" onclick="openModal('Future Possibility Mapping','未来可能性探索')">探索这个方向</button>
-    <div class="hint">你可以只是好奇，而不必做出决定</div>
-    <div class="ai-note">AI 视觉预览（即将推出）</div>
+    <p>适合重视自然感、轻松感，以及不想被改变压力推动的人</p>
+    <button class="explore" onclick="openModal()">探索这个方向</button>
+    <div class="ai-note">AI 视觉探索（非模特方案）将在真正成熟时推出</div>
   </div>
 
   <!-- Saved -->
@@ -234,15 +212,44 @@
 <div class="modal" id="modal">
   <div class="modal-content">
     <div class="en">
+      <h4>Why this direction resonates</h4>
+      <ul>
+        <li>You may value looking at ease rather than transformed</li>
+        <li>You may prefer refinement over contrast</li>
+        <li>You may not want ongoing maintenance pressure</li>
+      </ul>
+
+      <h4>What this direction intentionally avoids</h4>
+      <ul>
+        <li>Dramatic before-and-after narratives</li>
+        <li>Rapid or attention-seeking change</li>
+        <li>External standards of “better”</li>
+      </ul>
+
       <p>
-        This is a moment of exploration, not a decision.
-        You are allowed to be curious.
+        If you wish to continue, you can explore different visual states —
+        without deciding anything yet.
       </p>
     </div>
+
     <div class="zh">
+      <h4>你为什么会被这个方向吸引</h4>
+      <ul>
+        <li>你可能更在意是否看起来轻松自然</li>
+        <li>你偏好细腻的改善，而不是强烈对比</li>
+        <li>你不希望被持续维护的压力推着走</li>
+      </ul>
+
+      <h4>这个方向刻意不追求什么</h4>
+      <ul>
+        <li>明显的前后对比</li>
+        <li>快速或引人注意的改变</li>
+        <li>来自他人的“标准答案”</li>
+      </ul>
+
       <p>
-        这是一个探索的时刻，而不是做决定的时刻
-        你可以只是好奇
+        如果你愿意，接下来可以看看不同的状态可能性  
+        而不必做出任何决定
       </p>
     </div>
 
@@ -254,15 +261,14 @@
 </div>
 
 <script>
-let currentDirection = null;
+let currentDirection = { en: "Soft Natural Balance", zh: "自然平衡风格" };
 
 function setLang(lang) {
   document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
   document.querySelectorAll('.zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
 }
 
-function openModal(en, zh) {
-  currentDirection = { en, zh };
+function openModal() {
   document.getElementById('modal').style.display = 'flex';
 }
 
