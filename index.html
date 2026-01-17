@@ -37,20 +37,18 @@
 
   .hero {
     text-align: center;
-    padding: 90px 20px 70px;
+    padding: 90px 20px 60px;
   }
 
   .hero h1 {
     font-size: 42px;
     margin-bottom: 10px;
-    font-weight: 600;
   }
 
   .hero h2 {
     font-size: 22px;
     font-weight: 400;
     color: #555;
-    margin-top: 0;
   }
 
   .container {
@@ -67,21 +65,8 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.06);
   }
 
-  .card h3 {
-    margin-top: 0;
-  }
-
-  .section-title {
-    margin-top: 18px;
-    font-weight: 600;
-  }
-
-  ul {
-    padding-left: 18px;
-  }
-
   button.explore {
-    margin-top: 18px;
+    margin-top: 16px;
     padding: 10px 18px;
     border-radius: 18px;
     border: none;
@@ -91,12 +76,61 @@
   }
 
   .hint {
-    margin-top: 12px;
+    margin-top: 10px;
     font-size: 13px;
     color: #777;
   }
 
+  .saved-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  }
+
+  .saved-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
   .zh { display: none; }
+
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal-content {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 520px;
+    width: 90%;
+  }
+
+  .modal-actions {
+    margin-top: 24px;
+    text-align: right;
+  }
+
+  .modal-actions button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .secondary {
+    background: #e0e0e0;
+  }
 </style>
 </head>
 
@@ -110,7 +144,6 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero en">
   <h1>See your true self</h1>
   <h2>Meet a better version of you</h2>
@@ -123,43 +156,54 @@
 
 <div class="container">
 
-  <!-- Card 1 -->
   <div class="card en">
     <h3>Soft Natural Balance</h3>
     <p>A gentle refinement that feels effortless and authentic.</p>
-
-    <div class="section-title">Why this might suit you</div>
-    <p>You prefer subtle improvements that enhance what you already have.</p>
-
-    <div class="section-title">This direction can explore</div>
-    <ul>
-      <li>Natural hairstyle balance</li>
-      <li>Subtle colour refinement</li>
-      <li>Everyday appearance harmony</li>
-    </ul>
-
-    <button class="explore">Explore this direction</button>
+    <button class="explore" onclick="openModal()">Explore this direction</button>
     <div class="hint">This is a space to understand directions, not promises.</div>
   </div>
 
   <div class="card zh">
     <h3>自然平衡风格</h3>
     <p>一种轻柔、不费力、真实自然的提升</p>
-
-    <div class="section-title">为什么你可能适合这个方向</div>
-    <p>你偏好自然的改变，希望强化原本的自己</p>
-
-    <div class="section-title">这个方向可以探索</div>
-    <ul>
-      <li>自然协调的发型</li>
-      <li>细微而高级的发色调整</li>
-      <li>日常外观的整体和谐感</li>
-    </ul>
-
-    <button class="explore">探索这个方向</button>
+    <button class="explore" onclick="openModal()">探索这个方向</button>
     <div class="hint">这是一个理解方向的空间，而不是承诺结果</div>
   </div>
 
+  <div id="savedBox" class="saved-box" style="display:none;">
+    <div class="saved-title en">Your current exploration</div>
+    <div class="saved-title zh">你正在探索的方向</div>
+    <div id="savedContent"></div>
+  </div>
+
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <div class="en">
+      <p>
+        You may be drawn to this direction not because you want to change,
+        but because you are seeking something that feels more natural and aligned.
+      </p>
+      <p>
+        There are no promises here. Only space to understand and choose.
+      </p>
+    </div>
+    <div class="zh">
+      <p>
+        你被这个方向吸引，往往不是因为你想改变自己，
+        而是在寻找一种更自然、更适合自己的状态
+      </p>
+      <p>
+        这里没有承诺，只有理解与选择的空间
+      </p>
+    </div>
+
+    <div class="modal-actions">
+      <button onclick="saveDirection()">Save this direction</button>
+      <button class="secondary" onclick="closeModal()">Close</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -167,6 +211,37 @@ function setLang(lang) {
   document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
   document.querySelectorAll('.zh').forEach(el => el.style.display = lang === 'zh' ? 'block' : 'none');
 }
+
+function openModal() {
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+function saveDirection() {
+  const direction = {
+    en: "Soft Natural Balance",
+    zh: "自然平衡风格"
+  };
+  localStorage.setItem("istyleDirection", JSON.stringify(direction));
+  updateSaved();
+  closeModal();
+}
+
+function updateSaved() {
+  const saved = localStorage.getItem("istyleDirection");
+  if (!saved) return;
+  const data = JSON.parse(saved);
+  document.getElementById("savedBox").style.display = "block";
+  document.getElementById("savedContent").innerHTML = `
+    <div class="en">${data.en}</div>
+    <div class="zh">${data.zh}</div>
+  `;
+}
+
+updateSaved();
 </script>
 
 </body>
